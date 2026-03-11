@@ -15,6 +15,17 @@ Le fichier README.md doit contenir les informations suivantes :
     - Lancement de votre application
     - Commandes correspondantes aux tests  
 
+-  sur le code :
+    -  Version de python utilisée : 
+    - Packages python utilisés avec dépendances et versions :
+    - Style des docstrings : NumPy style
+    - Linter : ruff
+    - Formatter : ruff
+    - Type checker : mypy
+
+    
+
+
 ## Schéma de relations entre les modules
 
 ```mermaid
