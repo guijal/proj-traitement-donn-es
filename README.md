@@ -1,6 +1,6 @@
 # Projet traitement de données
 
-Votre fichier README.md doit contenir les informations suivantes :  
+Le fichier README.md doit contenir les informations suivantes :  
 - Informations sur votre code :  
     - Version de python utilisée    
     - Packages python, dépendances et versions
