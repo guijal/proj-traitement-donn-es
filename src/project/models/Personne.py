@@ -141,5 +141,8 @@ class Personne(ABC):
         return self.__statut
 
     def ajouter_statut(self, date: tuple[int], description: str):
-        assert isinstance(date, tuple) and isinstance(description, str)
+        if not (isinstance(date, tuple) and isinstance(description, str)):
+            raise TypeError(
+                "Les arguments 'date' et 'description' doivent être respectivement un tuple et une chaîne de caractères."
+            )
         self.__statut[date] = description
