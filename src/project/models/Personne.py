@@ -6,20 +6,26 @@ class Personne(ABC):
 
     Simule une personne
 
-    Parameters
+    Attributes
     -----------
-    - id_personne : int
-    - sex : str
-    - nom : str
-    - prenom : str
-    - date_naissance : tuple[int]
-    - nationalite : str
-
-    - taille : int (en cm)
-    - poids : int  (en kg)
-
-    - statut : dict[tuple[int], str]
-    dictionaire (clé: date, valeur : état (actif, blessé, suspendu, retraité) )
+    id_personne 
+        int
+    sex
+        str
+    nom
+        str
+    prenom
+        str
+    date_naissance
+        tuple[int]
+    nationalite
+        str
+    taille 
+        int (en cm)
+    poids
+        int  (en kg)
+    statut
+        dict[tuple[int], str]
     """
 
     def __init__(
