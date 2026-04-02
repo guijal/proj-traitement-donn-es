@@ -35,7 +35,7 @@ class Sport:
         Nombre d'equipes: {self.__nb_equipes}
         """
 
-    #test 2
+    #test 3
 
     # getter 
     @property
