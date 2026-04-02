@@ -15,7 +15,7 @@ class Sport:
 
     Method
     ------
-    
+
     """
 
     def __init__(
@@ -35,7 +35,7 @@ class Sport:
         Nombre d'equipes: {self.__nb_equipes}
         """
 
-    
+    #test
 
     # getter 
     @property
