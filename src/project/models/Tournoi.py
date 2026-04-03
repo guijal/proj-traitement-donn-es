@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from .Sport import Sport
-from .Medaille import Medaille
+from .sport import Sport
+from .medaille import Medaille
 
 
 class Tournoi(ABC):

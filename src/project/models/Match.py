@@ -1,7 +1,7 @@
 from datetime import date, time
 
-from .Equipe import Equipe
-from .Arbitre import Arbitre
+from .equipe import Equipe
+from .arbitre import Arbitre
 
 
 class Match:

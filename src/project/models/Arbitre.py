@@ -1,7 +1,7 @@
 from datetime import date
 
-from .Personne import Personne
-from .Sport import Sport
+from .personne import Personne
+from .sport import Sport
 
 
 class Arbitre(Personne):
@@ -27,14 +27,7 @@ class Arbitre(Personne):
         sport_arbitre: Sport,
     ):
         super().__init__(
-            id_personne,
-            sex,
-            nom,
-            prenom,
-            date_naissance,
-            nationalite,
-            taille,
-            poids
+            id_personne, sex, nom, prenom, date_naissance, nationalite, taille, poids
         )
         if not isinstance(sport_arbitre, Sport):
             raise TypeError("sport_arbitre doit être un Sport")

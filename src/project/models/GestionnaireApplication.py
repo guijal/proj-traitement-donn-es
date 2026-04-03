@@ -1,5 +1,5 @@
-from .Competition import Competition
-from .Sport import Sport
+from .competition import Competition
+from .sport import Sport
 
 
 class GestionnaireApplication:
@@ -11,10 +11,7 @@ class GestionnaireApplication:
         Toutes les compétitions enregistrées.
     """
 
-    def __init__(
-        self,
-        liste_competitions: list | None = None
-    ):
+    def __init__(self, liste_competitions: list | None = None):
         self.__liste_competitions: list = (
             liste_competitions if liste_competitions is not None else []
         )

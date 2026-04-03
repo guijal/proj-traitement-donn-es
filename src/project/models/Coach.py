@@ -1,7 +1,7 @@
 from datetime import date
 
-from .Personne import Personne
-from .Sport import Sport
+from .personne import Personne
+from .sport import Sport
 
 
 class Coach(Personne):
@@ -32,14 +32,7 @@ class Coach(Personne):
         nombre_medailles: int,
     ):
         super().__init__(
-            id_personne,
-            sex,
-            nom,
-            prenom,
-            date_naissance,
-            nationalite,
-            taille,
-            poids
+            id_personne, sex, nom, prenom, date_naissance, nationalite, taille, poids
         )
         if not isinstance(surnom, str):
             raise TypeError("surnom doit être un str")

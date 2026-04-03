@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from .NoeudMatch import NoeudMatch
+from .noeudMatch import NoeudMatch
 
 
 class PhaseTournoi(ABC):

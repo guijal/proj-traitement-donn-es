@@ -1,4 +1,4 @@
-from .Sport import Sport
+from .sport import Sport
 
 
 class Equipe:

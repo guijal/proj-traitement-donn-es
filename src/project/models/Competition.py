@@ -1,7 +1,7 @@
 from datetime import date
 
-from .Tournoi import Tournoi
-from .Sport import Sport
+from .tournoi import Tournoi
+from .sport import Sport
 
 
 class Competition:
@@ -55,7 +55,9 @@ class Competition:
         self.__organisateur = organisateur
         self.__date_debut = date_debut
         self.__date_fin = date_fin
-        self.__liste_tournois: list = liste_tournois if liste_tournois is not None else []
+        self.__liste_tournois: list = (
+            liste_tournois if liste_tournois is not None else []
+        )
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Competition):
