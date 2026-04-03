@@ -1,10 +1,17 @@
+from datetime import date
+
 from .Personne import Personne
 from .Sport import Sport
 
 
 class Arbitre(Personne):
     """
-    Simule un arbitre, héritant de Personne.
+    Classe représentant un arbitre, héritant de Personne.
+
+    Attributes
+    ----------
+    sport_arbitre : Sport
+        Sport arbitré par cet arbitre
     """
 
     def __init__(
@@ -13,7 +20,7 @@ class Arbitre(Personne):
         sex: str,
         nom: str,
         prenom: str,
-        date_naissance: tuple[int],
+        date_naissance: date,
         nationalite: str,
         taille: int,
         poids: int,
@@ -27,18 +34,22 @@ class Arbitre(Personne):
             date_naissance,
             nationalite,
             taille,
-            poids,
+            poids
         )
+        if not isinstance(sport_arbitre, Sport):
+            raise TypeError("sport_arbitre doit être un Sport")
         self.__sport_arbitre = sport_arbitre
+
+    def __str__(self) -> str:
+        return f"Arbitre: {self.prenom} {self.nom} - {self.__sport_arbitre.nom}"
 
     @property
     def sport_arbitre(self):
+        """Sport: Sport arbitre."""
         return self.__sport_arbitre
 
     @sport_arbitre.setter
     def sport_arbitre(self, nouveau_sport: Sport):
-        assert isinstance(nouveau_sport, Sport)
+        if not isinstance(nouveau_sport, Sport):
+            raise TypeError("sport_arbitre doit être un Sport")
         self.__sport_arbitre = nouveau_sport
-
-    def __str__(self):
-        return f"Arbitre: {self.prenom} {self.nom} ({self.nationalite})"
