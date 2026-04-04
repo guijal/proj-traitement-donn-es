@@ -16,7 +16,13 @@ class Medaille:
 
     TYPES_VALIDES = {"or", "argent", "bronze"}
 
-    def __init__(self, id_medaille: int, type_medaille: str, date_remise: date):
+    def __init__(
+        self,
+        id_medaille: int,
+        type_medaille: str,
+        date_remise: date,
+        id_csv: int | None = None,
+    ):
         if not isinstance(id_medaille, int):
             raise TypeError("id_medaille doit être un int")
         if not isinstance(type_medaille, str):
@@ -30,6 +36,7 @@ class Medaille:
         self.__id_medaille = id_medaille
         self.__type_medaille = type_medaille
         self.__date = date_remise
+        self.__id_csv = id_csv
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Medaille):
@@ -76,3 +83,12 @@ class Medaille:
         if not isinstance(valeur, date):
             raise TypeError("date doit être un datetime.date")
         self.__date = valeur
+
+    @property
+    def id_csv(self) -> int | None:
+        """int | None: Identifiant d'origine du CSV"""
+        return self.__id_csv
+
+    @id_csv.setter
+    def id_csv(self, valeur: int | None):
+        self.__id_csv = valeur

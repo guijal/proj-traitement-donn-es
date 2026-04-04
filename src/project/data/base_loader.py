@@ -12,6 +12,14 @@ class BaseLoader(ABC):
     def __init__(self, data_directory: str, db: Database):
         self.data_directory = data_directory
         self.db = db
+        
+        # Tables de traduction (Mapping) : {id_du_csv: id_unique_database}
+        self.map_sports: dict[int, int] = {}
+        self.map_equipes: dict[int, int] = {}
+        self.map_personnes: dict[int, int] = {}
+        self.map_matchs: dict[int, int] = {}
+        self.map_competitions: dict[int, int] = {}
+        self.map_medailles: dict[int, int] = {}
 
     @abstractmethod
     def charger_tout(self) -> None:

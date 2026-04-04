@@ -39,6 +39,7 @@ class Match:
         heure_debut: time | None = None,
         heure_fin: time | None = None,
         arbitre=None,
+        id_csv: int | None = None,
     ):
         if not isinstance(id_match, int):
             raise TypeError("id_match doit être un int")
@@ -58,6 +59,7 @@ class Match:
         )
         self.__score: dict = score if score is not None else {}
         self.__arbitre = arbitre
+        self.__id_csv = id_csv
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Match):
@@ -151,6 +153,15 @@ class Match:
     @arbitre.setter
     def arbitre(self, valeur):
         self.__arbitre = valeur
+
+    @property
+    def id_csv(self) -> int | None:
+        """int | None: Identifiant d'origine du CSV"""
+        return self.__id_csv
+        
+    @id_csv.setter
+    def id_csv(self, valeur: int | None):
+        self.__id_csv = valeur
 
     def ajouter_equipe(self, equipe: Equipe) -> None:
         """Ajoute une équipe au match.

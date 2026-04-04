@@ -18,7 +18,8 @@ class Sport:
         nom: str,
         numero: int,
         nb_joueurs_par_equipe: int,
-        nb_equipes: int
+        nb_equipes: int,
+        id_csv: int | None = None,
     ):
         if not isinstance(nom, str):
             raise TypeError("nom doit être un str")
@@ -28,10 +29,14 @@ class Sport:
             raise TypeError("nb_joueurs_par_equipe doit être un int")
         if not isinstance(nb_equipes, int):
             raise TypeError("nb_equipes doit être un int")
+        if not isinstance(id_csv, int):
+            raise TypeError("id_csv doit être un int")
+        
         self.__nom = nom
         self.__numero = numero
         self.__nb_joueurs_par_equipe = nb_joueurs_par_equipe
         self.__nb_equipes = nb_equipes
+        self.__id_csv = id_csv
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Sport):
@@ -90,3 +95,14 @@ class Sport:
         if not isinstance(valeur, int):
             raise TypeError("nb_equipes doit être un int")
         self.__nb_equipes = valeur
+
+    @property
+    def id_csv(self) -> int | None:
+        """int | None: Identifiant d'origine du CSV"""
+        return self.__id_csv
+
+    @id_csv.setter
+    def id_csv(self, valeur: int):
+        if not isinstance(valeur, int):
+            raise TypeError("id_csv doit être un int")
+        self.__id_csv = valeur

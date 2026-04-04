@@ -26,6 +26,7 @@ class President(Personne):
         poids: float,
         surnom: str,
         nombre_medailles: int,
+        id_csv: int | None = None,
     ):
         super().__init__(
             id_personne,
@@ -35,7 +36,8 @@ class President(Personne):
             date_naissance,
             nationalite,
             taille,
-            poids
+            poids,
+            id_csv,
         )
         if not isinstance(surnom, str):
             raise TypeError("surnom doit être un str")

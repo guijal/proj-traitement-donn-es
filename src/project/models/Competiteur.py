@@ -36,9 +36,18 @@ class Competiteur(Personne):
         numero_maillot: int,
         poste_principal: str,
         nombre_medailles: int,
+        id_csv: int | None = None,
     ):
         super().__init__(
-            id_personne, sex, nom, prenom, date_naissance, nationalite, taille, poids
+            id_personne,
+            sex,
+            nom,
+            prenom,
+            date_naissance,
+            nationalite,
+            taille,
+            poids,
+            id_csv,
         )
         if not isinstance(surnom, str):
             raise TypeError("surnom doit être un str")

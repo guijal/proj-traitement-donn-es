@@ -37,6 +37,7 @@ class Personne(ABC):
         nationalite: str,
         taille: int,
         poids: float,
+        id_csv: int | None = None,
     ):
         if not isinstance(id_personne, int):
             raise TypeError("id_personne doit être un int")
@@ -64,6 +65,7 @@ class Personne(ABC):
         self.__taille = taille
         self.__poids = float(poids)
         self.__statut: dict = {}
+        self.__id_csv = id_csv
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Personne):
@@ -189,7 +191,13 @@ class Personne(ABC):
         if not isinstance(description, str):
             raise TypeError("description doit être un str")
         if description not in statuts_valides:
-            raise ValueError(
-                f"Statut invalide. Valeurs acceptées : {statuts_valides}"
-            )
+            raise ValueError(f"Statut invalide. Valeurs acceptées : {statuts_valides}")
         self.__statut[d] = description
+
+    @property
+    def id_csv(self) -> int | None:
+        return self.__id_csv
+
+    @id_csv.setter
+    def id_csv(self, valeur: int | None):
+        self.__id_csv = valeur

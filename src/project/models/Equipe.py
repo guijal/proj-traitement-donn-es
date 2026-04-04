@@ -51,6 +51,7 @@ class Equipe:
         president=None,
         liste_joueurs: list | None = None,
         liste_coachs: list | None = None,
+        id_csv: int | None = None,
     ):
         if not isinstance(id_equipe, int):
             raise TypeError("id_equipe doit être un int")
@@ -90,6 +91,7 @@ class Equipe:
         self.__liste_coachs: list = liste_coachs if liste_coachs is not None else []
         self.__annee_fondation = annee_fondation
         self.__nb_medailles = nb_medailles
+        self.__id_csv = id_csv
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Equipe):
@@ -234,6 +236,15 @@ class Equipe:
         if not isinstance(valeur, int):
             raise TypeError("nb_medailles doit être un int")
         self.__nb_medailles = valeur
+        
+    @property
+    def id_csv(self) -> int | None:
+        """int | None: Identifiant d'origine du CSV"""
+        return self.__id_csv
+        
+    @id_csv.setter
+    def id_csv(self, valeur: int | None):
+        self.__id_csv = valeur
 
     def ajouter_joueur(self, joueur) -> None:
         """Ajoute un joueur à la liste.

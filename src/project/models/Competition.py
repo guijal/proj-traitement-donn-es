@@ -34,6 +34,7 @@ class Competition:
         date_debut: date,
         date_fin: date,
         liste_tournois: list | None = None,
+        id_csv: int | None = None,
     ):
         if not isinstance(id_competition, int):
             raise TypeError("id_competition doit être un int")
@@ -58,6 +59,7 @@ class Competition:
         self.__liste_tournois: list = (
             liste_tournois if liste_tournois is not None else []
         )
+        self.__id_csv = id_csv
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Competition):

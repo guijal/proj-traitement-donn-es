@@ -25,9 +25,18 @@ class Arbitre(Personne):
         taille: int,
         poids: int,
         sport_arbitre: Sport,
+        id_csv: int | None = None,
     ):
         super().__init__(
-            id_personne, sex, nom, prenom, date_naissance, nationalite, taille, poids
+            id_personne,
+            sex,
+            nom,
+            prenom,
+            date_naissance,
+            nationalite,
+            taille,
+            poids,
+            id_csv,
         )
         if not isinstance(sport_arbitre, Sport):
             raise TypeError("sport_arbitre doit être un Sport")

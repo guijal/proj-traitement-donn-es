@@ -10,18 +10,22 @@ class BasketballLoader(BaseLoader):
         # Initialise la classe parente (BaseLoader) pour récupérer db et data_directory
         super().__init__(data_directory, db)
 
-        # Création dynamique du sport "Basketball" puisqu'il n'y a plus de sports.csv global
-        self.id_sport = 1
-        if self.id_sport not in self.db.sports:
+        # Dans cette partie on créé le/les sports en lien avec les csv car il n'y a pas de "sports.csv", il faut les créer un par un selon les données fournies
+        # Création  sport "Basketball"
+        self.id_csv_sport = 1
+        if self.id_csv_sport not in self.map_sports:
+            nouvel_id_sport = self.db.generer_id_sport()
+            self.map_sports[self.id_csv_sport] = nouvel_id_sport
             sport_basket = Sport(
                 nom="Basketball",
-                numero=self.id_sport,
+                numero=nouvel_id_sport,
                 nb_joueurs_par_equipe=5,
-                nb_equipes=0,  # Peut être recalculé plus tard
+                nb_equipes=0,  # dv
+                id_csv=self.id_csv_sport,
             )
-            self.db.sports[self.id_sport] = sport_basket
+            self.db.sports[nouvel_id_sport] = sport_basket
 
-        self.sport = self.db.sports[self.id_sport]
+        self.sport = self.db.sports[self.map_sports[self.id_csv_sport]]
 
     def charger_tout(self) -> None:
         """Orchestre le chargement de toutes les données liées au basketball."""
@@ -34,9 +38,13 @@ class BasketballLoader(BaseLoader):
         donnees = self._lire_csv(nom_fichier)
 
         for ligne in donnees:
-            id_equipe = int(ligne["id"])
+            id_csv = int(ligne["id"])
+            
+            nouvel_id = self.db.generer_id_equipe()
+            self.map_equipes[id_csv] = nouvel_id
+
             equipe = Equipe(
-                id_equipe=id_equipe,
+                id_equipe=nouvel_id,
                 nom_officiel=ligne["full_name"],
                 nom_abrege=ligne["abbreviation"],
                 ville=ligne["city"],
@@ -46,8 +54,9 @@ class BasketballLoader(BaseLoader):
                 discipline=self.sport,  # On utilise directement l'attribut créé dans __init__
                 annee_fondation=1900,
                 nb_medailles=0,
+                id_csv=id_csv,
             )
             # Ajout au registre global partagé du CSVLoader principal
-            self.db.equipes[id_equipe] = equipe
+            self.db.equipes[nouvel_id] = equipe
             # mettre ici les ajout aux classes qui dépendent par ex
             # à la création dun joueur il faut modifier Equipe
