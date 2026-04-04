@@ -55,11 +55,10 @@ class BasketballLoader(BaseLoader):
                 nom_abrege=ligne["abbreviation"],
                 ville=ligne["city"],
                 pays="USA",
-                code_pays=ligne["state"],
+                code_pays="US",
+                etat=ligne["state"],
                 genre="masculin",
                 discipline=self.sport,  # On utilise directement l'attribut créé dans __init__
-                annee_fondation=1900,
-                nb_medailles=0,
                 id_csv=id_csv,
             )
             # Ajout dans la db 
