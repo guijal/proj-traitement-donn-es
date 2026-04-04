@@ -34,6 +34,14 @@ def main():
     for equipe in registre_equipes.values():
         # L'affichage de l'équipe utilise implicitement la méthode __str__ définie dans ta classe Equipe
         print(f"- {equipe} | Sport: {equipe.discipline.nom}")
+    
+    #test sports
+    registre_sports = db.sports
+    print("=== Sports chargées ===")
+    for sport in registre_sports.values():
+        print(f"- {sport}")
+    
+
 
 
 if __name__ == "__main__":

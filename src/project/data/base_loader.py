@@ -43,7 +43,7 @@ class BaseLoader(ABC):
         
         # Tables de mapping : {id_du_csv: id_unique_database}
         # on crée l'ensemble des tables puis elles seront utilisées au besoin
-        self.map_sports: dict[int, int] = {}
+        
         self.map_equipes: dict[int, int] = {}
         self.map_personnes: dict[int, int] = {}
         self.map_matchs: dict[int, int] = {}
@@ -59,10 +59,11 @@ class BaseLoader(ABC):
     # méthodes utilitaires : 
 
     def _lire_csv(self, nom_fichier: str) -> list[dict]:
-        """Méthode utilitaire pour lire un CSV et retourner une liste de dictionnaires."""
+        """Méthode pour lire un CSV et retourner une liste de dictionnaires."""
         chemin_complet = Path(self.data_directory) / nom_fichier
         with open(chemin_complet, mode="r", encoding="utf-8") as fichier:
             return list(csv.DictReader(fichier))
+        #chaque elt de la liste est un dictionnaire qui contient {variable:valeur}. Ex {nom:Fiodor}
 
     @staticmethod
     def _parser_date(date_str: str):

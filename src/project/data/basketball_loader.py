@@ -5,7 +5,7 @@ from .base_loader import BaseLoader
 
 class BasketballLoader(BaseLoader):
     """Loader spécifique pour les données de basketball.
-    
+
     Suit la structure d'import générale (c.d. base_loader.py)
     """
 
@@ -13,6 +13,9 @@ class BasketballLoader(BaseLoader):
         super().__init__(data_directory, db)
 
         # Dans cette partie on créé le/les sports en lien avec les csv car il n'y a pas de "sports.csv", il faut les créer un par un selon les données fournies
+        # j'ai mis ça ici et pas dans le base loader car si il y a des données sans sport ou avec un sport existant il faut s'adapter mannuellement
+        # Il faut voir sous quel format on reçoit les données futures pour savoir s'il est worth de mettre certains trucs dans la classe parent
+
         # Création  sport "Basketball"
         nouvel_id_sport = self.db.generer_id_sport()
         sport_basket = Sport(
@@ -21,23 +24,28 @@ class BasketballLoader(BaseLoader):
             nb_joueurs_par_equipe=5,
             nb_equipes=0,  # dv
         )
+        #ajout à la db
         self.db.sports[nouvel_id_sport] = sport_basket
 
-        self.sport = self.db.sports[self.map_sports[self.id_csv_sport]]
+        #on crée un attribut qui stocke le sport (pour le réutiliser après)
+        self.sport = sport_basket
 
     def charger_tout(self) -> None:
-        """Orchestre le chargement de toutes les données liées au basketball."""
+        """Orchestre le chargement de toutes les données liées au basketball.
+        
+        Pour chaque fichier dans le dossier de données, créer une méthode qui instancie les données.
+        ! Mettre les chargements dans l'ordre : par ex les équipes doivent être chargées avant les matchs
+        """
         self.charger_equipes("basketball/team.csv")
-        # À l'avenir, tu pourras ajouter :
         # self.charger_matchs("basketball/match.csv")
         # self.charger_games("basketball/game.csv")
 
     def charger_equipes(self, nom_fichier: str) -> None:
         donnees = self._lire_csv(nom_fichier)
-
+        # donnees est une ligne et chaque elt de la liste est un dictionnaire qui contient {variable:valeur}. Ex {nom:Fiodor}
         for ligne in donnees:
             id_csv = int(ligne["id"])
-            
+
             nouvel_id = self.db.generer_id_equipe()
             self.map_equipes[id_csv] = nouvel_id
 
@@ -54,8 +62,14 @@ class BasketballLoader(BaseLoader):
                 nb_medailles=0,
                 id_csv=id_csv,
             )
-            # Ajout au registre global partagé du CSVLoader principal
+            # Ajout dans la db 
             self.db.equipes[nouvel_id] = equipe
+
 
             # mettre ici les ajout aux classes qui dépendent par ex
             # à la création dun joueur il faut modifier Equipe
+
+
+            # on peut créer d'autres méthodes qui permettent de calculer d'autres infos à partir des données csv
+            # on peut utiliser pandas pour ce faire
+            # exemple here : https://foad-moodle.ensai.fr/pluginfile.php/47664/mod_resource/content/2/Exemple%20-%20Joueuses%20de%20tennis.html
