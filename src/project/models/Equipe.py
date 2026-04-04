@@ -264,7 +264,7 @@ class Equipe:
     def surnom(self) -> str | None:
         """str: Surnom"""
         return self.__surnom
-    
+
     @surnom.setter
     def surnom(self, valeur: str | None):
         self.__surnom = valeur
@@ -273,11 +273,10 @@ class Equipe:
     def etat(self) -> str | None:
         """str: Etat des US"""
         return self.__etat
-    
+
     @etat.setter
     def etat(self, valeur: str | None):
         self.__etat = valeur
-
 
     def ajouter_joueur(self, joueur) -> None:
         """Ajoute un joueur à la liste.

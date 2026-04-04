@@ -24,38 +24,38 @@ class Competiteur(Personne):
     def __init__(
         self,
         id_personne: int,
-        sex: str,
         nom: str,
         prenom: str,
-        date_naissance: date,
-        nationalite: str,
-        taille: int,
-        poids: float,
-        surnom: str,
         sport_pratique: Sport,
-        numero_maillot: int,
-        poste_principal: str,
-        nombre_medailles: int,
+        sex: str | None = None,
+        date_naissance: date | None = None,
+        nationalite: str | None = None,
+        taille: float | None = None,
+        poids: float | None = None,
+        surnom: str | None = None,
+        numero_maillot: int | None = None,
+        poste_principal: str | None = None,
+        nombre_medailles: int = 0,
         id_csv: int | None = None,
     ):
         super().__init__(
-            id_personne,
-            sex,
-            nom,
-            prenom,
-            date_naissance,
-            nationalite,
-            taille,
-            poids,
-            id_csv,
+            id_personne=id_personne,
+            nom=nom,
+            prenom=prenom,
+            sex=sex,
+            date_naissance=date_naissance,
+            nationalite=nationalite,
+            taille=taille,
+            poids=poids,
+            id_csv=id_csv,
         )
-        if not isinstance(surnom, str):
+        if surnom is not None and not isinstance(surnom, str):
             raise TypeError("surnom doit être un str")
         if not isinstance(sport_pratique, Sport):
             raise TypeError("sport_pratique doit être un Sport")
-        if not isinstance(numero_maillot, int):
+        if numero_maillot is not None and not isinstance(numero_maillot, int):
             raise TypeError("numero_maillot doit être un int")
-        if not isinstance(poste_principal, str):
+        if poste_principal is not None and not isinstance(poste_principal, str):
             raise TypeError("poste_principal doit être un str")
         if not isinstance(nombre_medailles, int):
             raise TypeError("nombre_medailles doit être un int")
@@ -87,13 +87,13 @@ class Competiteur(Personne):
         )
 
     @property
-    def surnom(self) -> str:
-        """str: Surnom ou pseudo"""
+    def surnom(self) -> str | None:
+        """str | None: Surnom ou pseudo"""
         return self.__surnom
 
     @surnom.setter
-    def surnom(self, valeur: str):
-        if not isinstance(valeur, str):
+    def surnom(self, valeur: str | None):
+        if valeur is not None and not isinstance(valeur, str):
             raise TypeError("surnom doit être un str")
         self.__surnom = valeur
 
@@ -109,24 +109,24 @@ class Competiteur(Personne):
         self.__sport_pratique = valeur
 
     @property
-    def numero_maillot(self) -> int:
-        """int: Numéro de maillot"""
+    def numero_maillot(self) -> int | None:
+        """int | None: Numéro de maillot"""
         return self.__numero_maillot
 
     @numero_maillot.setter
-    def numero_maillot(self, valeur: int):
-        if not isinstance(valeur, int):
+    def numero_maillot(self, valeur: int | None):
+        if valeur is not None and not isinstance(valeur, int):
             raise TypeError("numero_maillot doit être un int")
         self.__numero_maillot = valeur
 
     @property
-    def poste_principal(self) -> str:
-        """str: Poste ou rôle principal"""
+    def poste_principal(self) -> str | None:
+        """str | None: Poste ou rôle principal"""
         return self.__poste_principal
 
     @poste_principal.setter
-    def poste_principal(self, valeur: str):
-        if not isinstance(valeur, str):
+    def poste_principal(self, valeur: str | None):
+        if valeur is not None and not isinstance(valeur, str):
             raise TypeError("poste_principal doit être un str")
         self.__poste_principal = valeur
 

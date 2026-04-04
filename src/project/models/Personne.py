@@ -19,9 +19,9 @@ class Personne(ABC):
         Date de naissance
     nationalite : str
         Code nationalité (ex: FRA)
-    taille : int
+    taille : float | None
         Taille en cm
-    poids : float
+    poids : float | None
         Poids en kg
     statut : dict[date, str]
         Historique des statuts
@@ -30,31 +30,31 @@ class Personne(ABC):
     def __init__(
         self,
         id_personne: int,
-        sex: str,
         nom: str,
         prenom: str,
-        date_naissance: date,
-        nationalite: str,
-        taille: int,
-        poids: float,
+        sex: str | None = None,
+        date_naissance: date | None = None,
+        nationalite: str | None = None,
+        taille: float | None = None,
+        poids: float | None = None,
         id_csv: int | None = None,
     ):
         if not isinstance(id_personne, int):
             raise TypeError("id_personne doit être un int")
-        if not isinstance(sex, str):
+        if sex is not None and not isinstance(sex, str):
             raise TypeError("sex doit être un str")
         if not isinstance(nom, str):
             raise TypeError("nom doit être un str")
         if not isinstance(prenom, str):
             raise TypeError("prenom doit être un str")
-        if not isinstance(date_naissance, date):
+        if date_naissance is not None and not isinstance(date_naissance, date):
             raise TypeError("date_naissance doit être un datetime.date")
-        if not isinstance(nationalite, str):
+        if nationalite is not None and not isinstance(nationalite, str):
             raise TypeError("nationalite doit être un str")
-        if not isinstance(taille, int):
-            raise TypeError("taille doit être un int")
-        if not isinstance(poids, (int, float)):
-            raise TypeError("poids doit être un int ou float")
+        if taille is not None and not isinstance(taille, float):
+            raise TypeError("taille doit être un float")
+        if poids is not None and not isinstance(poids, float):
+            raise TypeError("poids doit être un float")
 
         self.__id_personne = id_personne
         self.__sex = sex
@@ -62,8 +62,8 @@ class Personne(ABC):
         self.__prenom = prenom
         self.__date_naissance = date_naissance
         self.__nationalite = nationalite
-        self.__taille = taille
-        self.__poids = float(poids)
+        self.__taille = float(taille) if taille is not None else None
+        self.__poids = float(poids) if poids is not None else None
         self.__statut: dict = {}
         self.__id_csv = id_csv
 
@@ -87,13 +87,13 @@ class Personne(ABC):
         self.__id_personne = valeur
 
     @property
-    def sex(self):
-        """str: Sexe"""
+    def sex(self) -> str | None:
+        """str | None: Sexe"""
         return self.__sex
 
     @sex.setter
-    def sex(self, valeur: str):
-        if not isinstance(valeur, str):
+    def sex(self, valeur: str | None):
+        if valeur is not None and not isinstance(valeur, str):
             raise TypeError("sex doit etre un str")
         self.__sex = valeur
 
@@ -120,48 +120,48 @@ class Personne(ABC):
         self.__prenom = valeur
 
     @property
-    def date_naissance(self) -> date:
-        """date: Date de naissance"""
+    def date_naissance(self) -> date | None:
+        """date | None: Date de naissance"""
         return self.__date_naissance
 
     @date_naissance.setter
-    def date_naissance(self, valeur: date):
-        if not isinstance(valeur, date):
+    def date_naissance(self, valeur: date | None):
+        if valeur is not None and not isinstance(valeur, date):
             raise TypeError("date_naissance doit être un datetime.date")
         self.__date_naissance = valeur
 
     @property
-    def nationalite(self) -> str:
-        """str: Code nationalité"""
+    def nationalite(self) -> str | None:
+        """str | None: Code nationalité"""
         return self.__nationalite
 
     @nationalite.setter
-    def nationalite(self, valeur: str):
-        if not isinstance(valeur, str):
+    def nationalite(self, valeur: str | None):
+        if valeur is not None and not isinstance(valeur, str):
             raise TypeError("nationalite doit être un str")
         self.__nationalite = valeur
 
     @property
-    def taille(self) -> int:
-        """int: Taille en cm"""
+    def taille(self) -> float | None:
+        """float | None: Taille en cm"""
         return self.__taille
 
     @taille.setter
-    def taille(self, valeur: int):
-        if not isinstance(valeur, int):
-            raise TypeError("taille doit être un int")
-        self.__taille = valeur
+    def taille(self, valeur: float | None):
+        if valeur is not None and not isinstance(valeur, (int, float)):
+            raise TypeError("taille doit être un int ou float")
+        self.__taille = float(valeur) if valeur is not None else None
 
     @property
-    def poids(self) -> float:
-        """float: Poids en kg"""
+    def poids(self) -> float | None:
+        """float | None: Poids en kg"""
         return self.__poids
 
     @poids.setter
-    def poids(self, valeur: float):
-        if not isinstance(valeur, (int, float)):
+    def poids(self, valeur: float | None):
+        if valeur is not None and not isinstance(valeur, (int, float)):
             raise TypeError("poids doit être un int ou float.")
-        self.__poids = float(valeur)
+        self.__poids = float(valeur) if valeur is not None else None
 
     @property
     def statut(self) -> dict:
