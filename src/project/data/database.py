@@ -1,6 +1,8 @@
 from ..models.sport import Sport
 from ..models.equipe import Equipe
 from ..models.competiteur import Competiteur
+from ..models.match import Match
+from ..models.competition import Competition
 
 
 class Database:
@@ -19,6 +21,9 @@ class Database:
         self.sports: dict[int, Sport] = {}
         self.equipes: dict[int, Equipe] = {}
         self.competiteurs: dict[int, Competiteur] = {}
+        self.matchs: dict[int, Match] = {}
+        self.competitions: dict[int, Competition] = {}
+
 
         # On ajoutera les arbitres, les matchs, ou toute autre classe considérée comme "donnée" ici.
         # Puis on leur attribut un id unique

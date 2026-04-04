@@ -86,8 +86,5 @@ class BaseLoader(ABC):
     def _parser_weight(weight_str: str):
         if weight_str == "" or weight_str is None:
             return None
-        try:
-            # Conversion de lbs en kg (1 lb = 0.453592 kg)
-            return float(weight_str) * 0.453592
-        except ValueError:
-            return float(weight_str)
+        # Conversion de lbs en kg (1 lb = 0.453592 kg)
+        return float(weight_str) * 0.453592

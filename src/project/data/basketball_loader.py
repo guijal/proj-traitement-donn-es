@@ -87,6 +87,17 @@ class BasketballLoader(BaseLoader):
                 taille=self._parser_height(ligne["height"]),
                 poids=self._parser_weight(ligne["weight"]),
             )
+            # Ajout dans la db
+            self.db.competiteurs[nouvel_id] = competiteur
+
+            #ajout du joueur dans l'équipe associée
+            id_equipe = self.map_equipes[int(ligne["team_id"])]
+            self.db.equipes[id_equipe].liste_joueurs.append(competiteur)
+
+
+            
+
+
 
     # on peut créer d'autres méthodes qui permettent de calculer d'autres infos à partir des données csv
     # on peut utiliser pandas pour ce faire
