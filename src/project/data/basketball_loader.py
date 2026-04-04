@@ -23,7 +23,7 @@ class BasketballLoader(BaseLoader):
             nom="Basketball",
             numero=nouvel_id_sport,
             nb_joueurs_par_equipe=5,
-            nb_equipes=0,  # dv
+            nb_equipes=2,
         )
         # ajout à la db
         self.db.sports[nouvel_id_sport] = sport_basket
@@ -38,6 +38,7 @@ class BasketballLoader(BaseLoader):
         ! Mettre les chargements dans l'ordre : par ex les équipes doivent être chargées avant les matchs
         """
         self.charger_equipes("basketball/team.csv")
+        self.charger_joueurs("basketball/player.csv")
         # self.charger_matchs("basketball/match.csv")
         # self.charger_games("basketball/game.csv")
 
@@ -90,14 +91,9 @@ class BasketballLoader(BaseLoader):
             # Ajout dans la db
             self.db.competiteurs[nouvel_id] = competiteur
 
-            #ajout du joueur dans l'équipe associée
+            # ajout du joueur dans l'équipe associée
             id_equipe = self.map_equipes[int(ligne["team_id"])]
             self.db.equipes[id_equipe].liste_joueurs.append(competiteur)
-
-
-            
-
-
 
     # on peut créer d'autres méthodes qui permettent de calculer d'autres infos à partir des données csv
     # on peut utiliser pandas pour ce faire

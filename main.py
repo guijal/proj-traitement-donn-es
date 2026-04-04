@@ -40,6 +40,12 @@ def main():
     print("=== Sports chargées ===")
     for sport in registre_sports.values():
         print(f"- {sport}")
+
+    #test joueurs basket
+    registre_joueurs = db.competiteurs
+    print("=== Joueurs chargées ===")
+    for joueur in registre_joueurs.values():
+        print(f"- {joueur}")
     
 
 
