@@ -10,23 +10,18 @@ class BasketballLoader(BaseLoader):
     """
 
     def __init__(self, data_directory: str, db):
-        # Initialise la classe parente (BaseLoader) pour récupérer db et data_directory
         super().__init__(data_directory, db)
 
         # Dans cette partie on créé le/les sports en lien avec les csv car il n'y a pas de "sports.csv", il faut les créer un par un selon les données fournies
         # Création  sport "Basketball"
-        self.id_csv_sport = 1
-        if self.id_csv_sport not in self.map_sports:
-            nouvel_id_sport = self.db.generer_id_sport()
-            self.map_sports[self.id_csv_sport] = nouvel_id_sport
-            sport_basket = Sport(
-                nom="Basketball",
-                numero=nouvel_id_sport,
-                nb_joueurs_par_equipe=5,
-                nb_equipes=0,  # dv
-                id_csv=self.id_csv_sport,
-            )
-            self.db.sports[nouvel_id_sport] = sport_basket
+        nouvel_id_sport = self.db.generer_id_sport()
+        sport_basket = Sport(
+            nom="Basketball",
+            numero=nouvel_id_sport,
+            nb_joueurs_par_equipe=5,
+            nb_equipes=0,  # dv
+        )
+        self.db.sports[nouvel_id_sport] = sport_basket
 
         self.sport = self.db.sports[self.map_sports[self.id_csv_sport]]
 
