@@ -27,10 +27,8 @@ def main():
     loader = CSVLoader(data_directory="data/raw", db=db)
     loader.charger_tout()
 
-    # Les données sont désormais bien rangées dans la base de données
-    registre_equipes = db.equipes
-
     # test afficher les données pour team de basket
+    registre_equipes = db.equipes
     print("=== Équipes chargées ===")
     # .values() permet de récupérer la liste des objets (sans leurs IDs)
     for equipe in registre_equipes.values():
