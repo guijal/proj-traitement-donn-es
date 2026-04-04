@@ -4,7 +4,10 @@ from .base_loader import BaseLoader
 
 
 class BasketballLoader(BaseLoader):
-    """Loader spécifique pour les données de basketball."""
+    """Loader spécifique pour les données de basketball.
+    
+    Suit la structure d'import générale (c.d. base_loader.py)
+    """
 
     def __init__(self, data_directory: str, db):
         # Initialise la classe parente (BaseLoader) pour récupérer db et data_directory
@@ -58,5 +61,6 @@ class BasketballLoader(BaseLoader):
             )
             # Ajout au registre global partagé du CSVLoader principal
             self.db.equipes[nouvel_id] = equipe
+
             # mettre ici les ajout aux classes qui dépendent par ex
             # à la création dun joueur il faut modifier Equipe
