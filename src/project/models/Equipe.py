@@ -12,8 +12,12 @@ class Equipe:
         Nom officiel
     nom_abrege : str
         Abréviation (ex: PSG)
+    surnom : str
+        Surnom donné à l'équipe
     ville : str
         Ville
+    etat : str
+        Etat pour les US
     pays : str
         Pays
     code_pays : str
@@ -40,13 +44,15 @@ class Equipe:
         self,
         id_equipe: int,
         nom_officiel: str,
-        nom_abrege: str,
-        ville: str,
-        pays: str,
-        code_pays: str,
-        genre: str,
         discipline: Sport,
-        annee_fondation: int,
+        nom_abrege: str | None = None,
+        surnom: str | None = None,
+        ville: str | None = None,
+        etat: str | None = None,
+        pays: str | None = None,
+        code_pays: str | None = None,
+        genre: str = "mixte",
+        annee_fondation: int | None = None,
         nb_medailles: int = 0,
         president=None,
         liste_joueurs: list | None = None,
@@ -57,13 +63,13 @@ class Equipe:
             raise TypeError("id_equipe doit être un int")
         if not isinstance(nom_officiel, str):
             raise TypeError("nom_officiel doit être un str")
-        if not isinstance(nom_abrege, str):
+        if nom_abrege is not None and not isinstance(nom_abrege, str):
             raise TypeError("nom_abrege doit être un str")
-        if not isinstance(ville, str):
+        if ville is not None and not isinstance(ville, str):
             raise TypeError("ville doit être un str")
-        if not isinstance(pays, str):
+        if pays is not None and not isinstance(pays, str):
             raise TypeError("pays doit être un str")
-        if not isinstance(code_pays, str):
+        if code_pays is not None and not isinstance(code_pays, str):
             raise TypeError("code_pays doit être un str")
         if not isinstance(genre, str):
             raise TypeError("genre doit être un str")
@@ -73,17 +79,25 @@ class Equipe:
             )
         if not isinstance(discipline, Sport):
             raise TypeError("discipline doit être un Sport")
-        if not isinstance(annee_fondation, int):
+        if annee_fondation is not None and not isinstance(annee_fondation, int):
             raise TypeError("annee_fondation doit être un int")
         if not isinstance(nb_medailles, int):
             raise TypeError("nb_medailles doit être un int")
+        if id_csv is not None and not isinstance(id_csv, int):
+            raise TypeError("id_csv doit être un int")
+        if surnom is not None and not isinstance(surnom, str):
+            raise TypeError("surnom doit être un str")
+        if etat is not None and not isinstance(etat, str):
+            raise TypeError("etat doit être un str")
 
         self.__id_equipe = id_equipe
         self.__nom_officiel = nom_officiel
         self.__nom_abrege = nom_abrege
+        self.__surnom = surnom
         self.__ville = ville
         self.__pays = pays
         self.__code_pays = code_pays
+        self.__etat = etat
         self.__genre = genre
         self.__discipline = discipline
         self.__president = president
@@ -127,7 +141,7 @@ class Equipe:
         self.__nom_officiel = valeur
 
     @property
-    def nom_abrege(self) -> str:
+    def nom_abrege(self) -> str | None:
         """str: Abréviation"""
         return self.__nom_abrege
 
@@ -138,7 +152,7 @@ class Equipe:
         self.__nom_abrege = valeur
 
     @property
-    def ville(self) -> str:
+    def ville(self) -> str | None:
         """str: Ville"""
         return self.__ville
 
@@ -149,7 +163,7 @@ class Equipe:
         self.__ville = valeur
 
     @property
-    def pays(self) -> str:
+    def pays(self) -> str | None:
         """str: Pays"""
         return self.__pays
 
@@ -160,7 +174,7 @@ class Equipe:
         self.__pays = valeur
 
     @property
-    def code_pays(self) -> str:
+    def code_pays(self) -> str | None:
         """str: Code ISO pays"""
         return self.__code_pays
 
@@ -216,7 +230,7 @@ class Equipe:
         return self.__liste_coachs
 
     @property
-    def annee_fondation(self) -> int:
+    def annee_fondation(self) -> int | None:
         """int: Année de fondation"""
         return self.__annee_fondation
 
@@ -236,15 +250,34 @@ class Equipe:
         if not isinstance(valeur, int):
             raise TypeError("nb_medailles doit être un int")
         self.__nb_medailles = valeur
-        
+
     @property
     def id_csv(self) -> int | None:
         """int | None: Identifiant d'origine du CSV"""
         return self.__id_csv
-        
+
     @id_csv.setter
     def id_csv(self, valeur: int | None):
         self.__id_csv = valeur
+
+    @property
+    def surnom(self) -> str | None:
+        """str: Surnom"""
+        return self.__surnom
+    
+    @surnom.setter
+    def surnom(self, valeur: str | None):
+        self.__surnom = valeur
+
+    @property
+    def etat(self) -> str | None:
+        """str: Etat des US"""
+        return self.__etat
+    
+    @etat.setter
+    def etat(self, valeur: str | None):
+        self.__etat = valeur
+
 
     def ajouter_joueur(self, joueur) -> None:
         """Ajoute un joueur à la liste.
