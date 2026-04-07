@@ -3,6 +3,8 @@ from datetime import datetime
 from abc import ABC, abstractmethod
 from pathlib import Path
 
+from ..models.sport import Sport
+
 from .database import Database
 
 
@@ -54,6 +56,28 @@ class BaseLoader(ABC):
     def charger_tout(self) -> None:
         """Chaque sous-classe devra implémenter l'orchestration de ses propres fichiers."""
         pass
+
+    # méthodes de load
+    
+    def unique_charger_sport(self,nom:str, nb_joueurs_par_equipe:int, nb_equipes:int) -> None:
+        """load du sport
+
+        La structure des données étant spéciale. Il faut importer le sport "manuellement" à partir de notre connaissance des bdd
+        C'est à ça que sert cette méthode
+        """ 
+        nouvel_id_sport = self.db.generer_id_sport()
+        sport_basket = Sport(
+            nom=nom,
+            numero=nouvel_id_sport,
+            nb_joueurs_par_equipe=nb_joueurs_par_equipe,
+            nb_equipes=nb_equipes,
+        )
+        # ajout à la db
+        self.db.sports[nouvel_id_sport] = sport_basket
+
+        # on crée un attribut qui stocke le sport (pour le réutiliser après)
+        self.sport = sport_basket
+
 
     # méthodes utilitaires :
 

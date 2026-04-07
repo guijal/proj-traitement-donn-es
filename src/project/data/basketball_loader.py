@@ -14,29 +14,17 @@ class BasketballLoader(BaseLoader):
         super().__init__(data_directory, db)
 
         # Dans cette partie on créé le/les sports en lien avec les csv car il n'y a pas de "sports.csv", il faut les créer un par un selon les données fournies
-        # j'ai mis ça ici et pas dans le base loader car si il y a des données sans sport ou avec un sport existant il faut s'adapter mannuellement
-        # Il faut voir sous quel format on reçoit les données futures pour savoir s'il est worth de mettre certains trucs dans la classe parent
-
-        # Création  sport "Basketball"
-        nouvel_id_sport = self.db.generer_id_sport()
-        sport_basket = Sport(
-            nom="Basketball",
-            numero=nouvel_id_sport,
-            nb_joueurs_par_equipe=5,
-            nb_equipes=2,
-        )
-        # ajout à la db
-        self.db.sports[nouvel_id_sport] = sport_basket
-
-        # on crée un attribut qui stocke le sport (pour le réutiliser après)
-        self.sport = sport_basket
-
+        
     def charger_tout(self) -> None:
         """Orchestre le chargement de toutes les données liées au basketball.
 
+        Pour chaque fichier, créer le load du sport.
         Pour chaque fichier dans le dossier de données, créer une méthode qui instancie les données.
         ! Mettre les chargements dans l'ordre : par ex les équipes doivent être chargées avant les matchs
         """
+
+        self.unique_charger_sport("Basketball", 5, 2)
+
         self.charger_equipes("basketball/team.csv")
         self.charger_joueurs("basketball/player.csv")
         # self.charger_matchs("basketball/match.csv")
