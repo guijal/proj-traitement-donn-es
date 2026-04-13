@@ -60,4 +60,4 @@ class Database:
 #  - - - - - - - - - - 
     #
     # placer toutes les méthodes de recherche / modification ici
-    # Cela correspond à notre actuelle classe GestionnaireApplication
+    # Cela correspond à notre actuelle classe GestionnaireApplication mais restreinte ( pas la gestion admin )

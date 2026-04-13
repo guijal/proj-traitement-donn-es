@@ -31,6 +31,7 @@ class BasketballLoader(BaseLoader):
         # self.charger_games("basketball/game.csv")
 
     def charger_equipes(self, nom_fichier: str) -> None:
+        self.base_charger_equipes(nom_fichier, nom_col_id_csv="id", nom_officiel="full_name", nom_abrege="abbreviation", ville="city", pays="USA", code_pays="US", etat="state", genre="masculin")
         donnees = self._lire_csv(nom_fichier)
         # donnees est une ligne et chaque elt de la liste est un dictionnaire qui contient {variable:valeur}. Ex {nom:Fiodor}
         for ligne in donnees:

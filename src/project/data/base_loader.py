@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 
 from ..models.sport import Sport
+from ..models.equipe import Equipe
 
 from .database import Database
 
@@ -64,6 +65,15 @@ class BaseLoader(ABC):
 
         La structure des données étant spéciale. Il faut importer le sport "manuellement" à partir de notre connaissance des bdd
         C'est à ça que sert cette méthode
+
+        Parameters
+        ----------
+        nom : str
+            Nom du sport
+        nb_joueurs_par_equipe : int
+            Nombre de joueurs par équipe
+        nb_equipes : int
+            Nombre d'équipes par compétition
         """ 
         nouvel_id_sport = self.db.generer_id_sport()
         sport_basket = Sport(
@@ -78,7 +88,42 @@ class BaseLoader(ABC):
         # on crée un attribut qui stocke le sport (pour le réutiliser après)
         self.sport = sport_basket
 
+    """Explication du **kwargs
 
+    Les ** permettent de dire si on met un paramètre, il le prend, sinon il garde la d.v.
+    quand on utiiser les loaders de bases dans les loaders spécifiques, il faudra écrire un truc du genre
+    base_charger_equipe(self, nom_fichier: str, nom_officiel = "nom_colonne")
+    """
+    def base_charger_equipes(self, nom_fichier: str, nom_col_id_csv: str) -> None:
+            """Loader type
+
+            Permet de charger l'objet à l'aide d'une sous fonction qui charge les trucs "manuellement"
+            La sous fonction sera dans les loaders spécifiques.
+            Cela permet d'avoir plus de contrôle sur
+            """
+            donnees = self._lire_csv(nom_fichier)
+            # donnees est une ligne et chaque elt de la liste est un dictionnaire qui contient {variable:valeur}. Ex {nom:Fiodor}
+            for ligne in donnees:
+                id_csv = int(ligne[nom_col_id_csv])
+
+                nouvel_id = self.db.generer_id_equipe()
+                self.map_equipes[id_csv] = nouvel_id
+
+                equipe = Equipe(
+                    id_equipe=nouvel_id,
+                    discipline=self.sport,  # On utilise directement l'attribut créé dans __init__
+                    id_csv=id_csv,
+                    nom_officiel="temp"
+                )
+                # Ajout dans la db
+                self.db.equipes[nouvel_id] = equipe
+
+                # mettre aussi les ajouts aux classes qui dépendent. par ex
+                # à la création dun joueur il faut modifier Equipe
+                # mettre ça dans la classe enfant si on ne peut pas généraliser
+
+
+#- - -  - - - -
     # méthodes utilitaires :
 
     def _lire_csv(self, nom_fichier: str) -> list[dict]:
