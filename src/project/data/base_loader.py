@@ -5,6 +5,9 @@ from pathlib import Path
 
 from ..models.sport import Sport
 from ..models.equipe import Equipe
+from ..models.competiteur import Competiteur
+from ..models.match import Match
+from ..models.competition import Competition
 
 from .database import Database
 
@@ -88,34 +91,22 @@ class BaseLoader(ABC):
         # on crée un attribut qui stocke le sport (pour le réutiliser après)
         self.sport = sport_basket
 
-    
-    def base_charger_equipes(self, nom_fichier: str, nom_col_id_csv: str) -> None:
-            """Loader type
+    # on peut utiliser les kwargs ici
+    def unique_charger_competition(self,nom:str, edition:str, organisateur:str, date_debut:str, date_fin:str):
+        nouvel_id_competition = self.db.generer_id_competition()
+        competition = Competition(
+            id_competition=nouvel_id_competition,
+            nom=nom,
+            edition=edition,
+            organisateur=organisateur,
+            date_debut=self._parser_date(date_debut),
+            date_fin=self._parser_date(date_fin),
+        )
+        # ajout à la db
+        self.db.competitions[nouvel_id_competition] = competition
 
-            Permet de charger l'objet à l'aide d'une sous fonction qui charge les trucs "manuellement"
-            La sous fonction sera dans les loaders spécifiques.
-            Cela permet d'avoir plus de contrôle sur
-            """
-            donnees = self._lire_csv(nom_fichier)
-            # donnees est une ligne et chaque elt de la liste est un dictionnaire qui contient {variable:valeur}. Ex {nom:Fiodor}
-            for ligne in donnees:
-                id_csv = int(ligne[nom_col_id_csv])
-
-                nouvel_id = self.db.generer_id_equipe()
-                self.map_equipes[id_csv] = nouvel_id
-
-                equipe = Equipe(
-                    id_equipe=nouvel_id,
-                    discipline=self.sport,  # On utilise directement l'attribut créé dans __init__
-                    id_csv=id_csv,
-                    nom_officiel="temp"
-                )
-                # Ajout dans la db
-                self.db.equipes[nouvel_id] = equipe
-
-                # mettre aussi les ajouts aux classes qui dépendent. par ex
-                # à la création dun joueur il faut modifier Equipe
-                # mettre ça dans la classe enfant si on ne peut pas généraliser
+        self.competition = competition
+        #pour réutilisation
 
 
 #- - -  - - - -

@@ -28,27 +28,27 @@ class Competition:
     def __init__(
         self,
         id_competition: int,
-        nom: str,
-        edition: str,
-        organisateur: str,
-        date_debut: date,
-        date_fin: date,
+        nom: str | None = None,
+        edition: str | None = None,
+        organisateur: str | None = None,
+        date_debut: date | None = None,
+        date_fin: date | None = None,
         liste_tournois: list | None = None,
         id_csv: int | None = None,
     ):
         if not isinstance(id_competition, int):
             raise TypeError("id_competition doit être un int")
-        if not isinstance(nom, str):
+        if nom is not None and not isinstance(nom, str):
             raise TypeError("nom doit être un str")
-        if not isinstance(edition, str):
+        if edition is not None and not isinstance(edition, str):
             raise TypeError("edition doit être un str")
-        if not isinstance(organisateur, str):
+        if organisateur is not None and not isinstance(organisateur, str):
             raise TypeError("organisateur doit être un str")
-        if not isinstance(date_debut, date):
+        if date_debut is not None and not isinstance(date_debut, date):
             raise TypeError("date_debut doit être un datetime.date")
-        if not isinstance(date_fin, date):
+        if date_fin is not None and not isinstance(date_fin, date):
             raise TypeError("date_fin doit être un datetime.date")
-        if date_fin < date_debut:
+        if date_fin is not None and date_debut is not None and date_fin < date_debut:
             raise ValueError("date_fin doit être posterieure a date_debut")
         self.__id_competition = id_competition
         self.__nom = nom
@@ -87,57 +87,57 @@ class Competition:
         self.__id_competition = valeur
 
     @property
-    def nom(self) -> str:
-        """str: Nom de la compétition"""
+    def nom(self) -> str | None:
+        """str | None: Nom de la compétition"""
         return self.__nom
 
     @nom.setter
-    def nom(self, valeur: str):
-        if not isinstance(valeur, str):
+    def nom(self, valeur: str | None):
+        if valeur is not None and not isinstance(valeur, str):
             raise TypeError("nom doit être un str")
         self.__nom = valeur
 
     @property
-    def edition(self) -> str:
-        """str: Edition"""
+    def edition(self) -> str | None:
+        """str | None: Edition"""
         return self.__edition
 
     @edition.setter
-    def edition(self, valeur: str):
-        if not isinstance(valeur, str):
+    def edition(self, valeur: str | None):
+        if valeur is not None and not isinstance(valeur, str):
             raise TypeError("edition doit être un str")
         self.__edition = valeur
 
     @property
-    def organisateur(self) -> str:
-        """str: Organisateur"""
+    def organisateur(self) -> str | None:
+        """str | None: Organisateur"""
         return self.__organisateur
 
     @organisateur.setter
-    def organisateur(self, valeur: str):
-        if not isinstance(valeur, str):
+    def organisateur(self, valeur: str | None):
+        if valeur is not None and not isinstance(valeur, str):
             raise TypeError("organisateur doit être un str")
         self.__organisateur = valeur
 
     @property
-    def date_debut(self) -> date:
-        """date: Date de début"""
+    def date_debut(self) -> date | None:
+        """date | None: Date de début"""
         return self.__date_debut
 
     @date_debut.setter
-    def date_debut(self, valeur: date):
-        if not isinstance(valeur, date):
+    def date_debut(self, valeur: date | None):
+        if valeur is not None and not isinstance(valeur, date):
             raise TypeError("date_debut doit être un datetime.date")
         self.__date_debut = valeur
 
     @property
-    def date_fin(self) -> date:
-        """date: Date de fin"""
+    def date_fin(self) -> date | None:
+        """date | None: Date de fin"""
         return self.__date_fin
 
     @date_fin.setter
-    def date_fin(self, valeur: date):
-        if not isinstance(valeur, date):
+    def date_fin(self, valeur: date | None):
+        if valeur is not None and not isinstance(valeur, date):
             raise TypeError("date_fin doit être un datetime.date")
         self.__date_fin = valeur
 
