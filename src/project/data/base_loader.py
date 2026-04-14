@@ -88,12 +88,7 @@ class BaseLoader(ABC):
         # on crée un attribut qui stocke le sport (pour le réutiliser après)
         self.sport = sport_basket
 
-    """Explication du **kwargs
-
-    Les ** permettent de dire si on met un paramètre, il le prend, sinon il garde la d.v.
-    quand on utiiser les loaders de bases dans les loaders spécifiques, il faudra écrire un truc du genre
-    base_charger_equipe(self, nom_fichier: str, nom_officiel = "nom_colonne")
-    """
+    
     def base_charger_equipes(self, nom_fichier: str, nom_col_id_csv: str) -> None:
             """Loader type
 

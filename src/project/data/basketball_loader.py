@@ -18,7 +18,7 @@ class BasketballLoader(BaseLoader):
     def charger_tout(self) -> None:
         """Orchestre le chargement de toutes les données liées au basketball.
 
-        Pour chaque fichier, créer le load du sport.
+        Pour chaque dossier, créer le load du sport.
         Pour chaque fichier dans le dossier de données, créer une méthode qui instancie les données.
         ! Mettre les chargements dans l'ordre : par ex les équipes doivent être chargées avant les matchs
         """
@@ -31,14 +31,13 @@ class BasketballLoader(BaseLoader):
         # self.charger_games("basketball/game.csv")
 
     def charger_equipes(self, nom_fichier: str) -> None:
-        self.base_charger_equipes(nom_fichier, nom_col_id_csv="id", nom_officiel="full_name", nom_abrege="abbreviation", ville="city", pays="USA", code_pays="US", etat="state", genre="masculin")
         donnees = self._lire_csv(nom_fichier)
         # donnees est une ligne et chaque elt de la liste est un dictionnaire qui contient {variable:valeur}. Ex {nom:Fiodor}
         for ligne in donnees:
-            id_csv = int(ligne["id"])
+            id_csv = int(ligne["id"]) # à mettre si ya un id_csv
 
             nouvel_id = self.db.generer_id_equipe()
-            self.map_equipes[id_csv] = nouvel_id
+            self.map_equipes[id_csv] = nouvel_id #à mettre si y'a un id_csv
 
             equipe = Equipe(
                 id_equipe=nouvel_id,
