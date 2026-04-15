@@ -18,16 +18,18 @@ class BaseLoader(ABC):
     Pour linstant les dossiers fournis correspondent à un sport et à l'intérieur les tables ont des relations.
     C'est pourquoi la structure d'import est la suivante :
 
-    Cependant cela n'empêche en rien d'importer d'autres structures de données s'il venait à en y avoir.
+    [Cependant cela n'empêche en rien d'importer d'autres structures de données s'il venait à en y avoir.
     Il suffit de créer, comme pour les sports, une sous classe de BaseLoader et d'adapter l'import.
-    Si cette structure venait à être commune, on ajoute simplement de nouvelles méthodes dans cette classe pour généraliser le nouveau type d'import.
+    Si cette structure venait à être commune, on ajoute simplement de nouvelles méthodes dans cette classe pour généraliser le nouveau type d'import.]
 
     Structure d'import générale :
 
     - création des tables de mapping pour les relations inter-csv (= intra-sport)
-    - création d'un id unique pour le Sport (ou autre plus tard)
-    - import ligne par ligne en faisant correspondre les données aux classes (données brutes)
-    - modification des objets existants suite à la création du nouvel objet. Ex en créant un joueur on l'ajoute à son équipe. ("données relationnelles")
+    - création d'un id unique pour le Sport (ou autre plus tard) et ajout du sport "mannuellement"
+    - ajout manuel d'autres classe si nécessaire, e.g. Competition
+    - Pour chaque fichier csv :
+        - import ligne par ligne en faisant correspondre les données aux classes (données brutes)
+        - modification des objets existants suite à la création du nouvel objet. Ex en créant un joueur on l'ajoute à son équipe. ("données relationnelles")
 
     """
 
@@ -93,6 +95,21 @@ class BaseLoader(ABC):
 
     # on peut utiliser les kwargs ici
     def unique_charger_competition(self,nom:str, edition:str, organisateur:str, date_debut:str, date_fin:str):
+        """Load manuel d'une compétition
+
+        Parameters
+        ----------
+        nom : str
+            Nom de la compétition
+        edition : str
+            Edition de la compétition
+        organisateur : str
+            Organisateur de la compétition
+        date_debut : str
+            Date de début de la compétition
+        date_fin : str
+            Date de fin de la compétition
+        """
         nouvel_id_competition = self.db.generer_id_competition()
         competition = Competition(
             id_competition=nouvel_id_competition,
