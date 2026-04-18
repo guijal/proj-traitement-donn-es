@@ -94,20 +94,20 @@ class BaseLoader(ABC):
         self.sport = sport_basket
 
     # on peut utiliser les kwargs ici
-    def unique_charger_competition(self,nom:str, edition:str, organisateur:str, date_debut:str, date_fin:str):
+    def unique_charger_competition(self, nom:str, edition:str|None = None, organisateur:str | None = None, date_debut:str | None = None, date_fin:str | None = None):
         """Load manuel d'une compétition
 
         Parameters
         ----------
         nom : str
             Nom de la compétition
-        edition : str
+        edition : str | None
             Edition de la compétition
-        organisateur : str
+        organisateur : str | None
             Organisateur de la compétition
-        date_debut : str
+        date_debut : str | None
             Date de début de la compétition
-        date_fin : str
+        date_fin : str | None
             Date de fin de la compétition
         """
         nouvel_id_competition = self.db.generer_id_competition()
@@ -137,8 +137,8 @@ class BaseLoader(ABC):
         # chaque elt de la liste est un dictionnaire qui contient {variable:valeur}. Ex {nom:Fiodor}
 
     @staticmethod
-    def _parser_date(date_str: str):
-        if date_str == "": 
+    def _parser_date(date_str: str | None):
+        if date_str == "" or date_str is None: 
             return None
         return datetime.strptime(date_str, "%Y-%m-%d").date()
 

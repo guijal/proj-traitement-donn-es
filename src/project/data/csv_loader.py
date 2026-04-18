@@ -7,7 +7,7 @@ class CSVLoader:
 
     Pour chaque jeu de donnée, on créera une sous classe à partir de la classe BaseLoader pour importer les données.
     En effet, les fichiers ayant des structures trop différentes il faut s'adapter à chaque fois pour l'import.
-    Cependant on garde une structure d'import de base. c.d. base_loader.py
+    Cependant on garde une structure d'import de base. c.d. base_loader.py et l'ensemble des méthodes associées
  
     """
 

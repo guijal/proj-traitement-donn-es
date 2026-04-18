@@ -7,13 +7,12 @@ from .base_loader import BaseLoader
 class BasketballLoader(BaseLoader):
     """Loader spécifique pour les données de basketball.
 
-    Suit la structure d'import générale (c.d. base_loader.py)
+    Suit la structure d'import générale (c.f. base_loader.py)
     """
 
     def __init__(self, data_directory: str, db):
         super().__init__(data_directory, db)
 
-        # Dans cette partie on créé le/les sports en lien avec les csv car il n'y a pas de "sports.csv", il faut les créer un par un selon les données fournies
         
     def charger_tout(self) -> None:
         """Orchestre le chargement de toutes les données liées au basketball.
@@ -23,12 +22,12 @@ class BasketballLoader(BaseLoader):
         ! Mettre les chargements dans l'ordre : par ex les équipes doivent être chargées avant les matchs
         """
 
+        # Ici on créé le/les sports en lien avec les csv car il n'y a pas de "sports.csv", il faut les créer un par un selon les données fournies
         self.unique_charger_sport("Basketball", 5, 2)
 
         self.charger_equipes("basketball/team.csv")
         self.charger_joueurs("basketball/player.csv")
-        # self.charger_matchs("basketball/match.csv")
-        # self.charger_games("basketball/game.csv")
+        # self.charger_matchs("basketball/game.csv")
 
     def charger_equipes(self, nom_fichier: str) -> None:
         donnees = self._lire_csv(nom_fichier)
