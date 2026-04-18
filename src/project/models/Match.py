@@ -3,6 +3,9 @@ from datetime import date, time
 from .equipe import Equipe
 from .arbitre import Arbitre
 
+from typing import Any
+
+
 
 class Match:
     """Classe représentant un match entre équipes.
@@ -11,11 +14,11 @@ class Match:
     ----------
     id_match : int
         Identifiant unique
-    jour : date
+    jour : date | None
         Date du match
-    lieu : str
+    lieu : str | None
         Lieu du match
-    ville : str
+    ville : str | None
         Ville du match
     liste_equipes_participantes : list[Equipe]
         Equipes participantes
@@ -27,27 +30,34 @@ class Match:
         Heure de fin. du match
     arbitre : Arbitre | None
         Arbitre du match
+    statistiques_diverses : dict
+        Statistiques diverses
+    duree : int | None
+        Durée du match en minutes
+    
     """
     def __init__(
         self,
         id_match: int,
-        jour: date,
-        lieu: str,
-        ville: str,
+        jour: date | None = None,
+        lieu: str | None = None,
+        ville: str | None = None,
         liste_equipes_participantes: list | None = None,
         score: dict | None = None,
         heure_debut: time | None = None,
         heure_fin: time | None = None,
         arbitre=None,
         id_csv: int | None = None,
+        statistiques_diverses: dict[str, Any] = dict(),
+        duree: int | None = None,
     ):
         if not isinstance(id_match, int):
             raise TypeError("id_match doit être un int")
-        if not isinstance(jour, date):
+        if not isinstance(jour, date) or jour is None:
             raise TypeError("jour doit être un datetime.date")
-        if not isinstance(lieu, str):
+        if not isinstance(lieu, str) or lieu is None:
             raise TypeError("lieu doit être un str")
-        if not isinstance(ville, str):
+        if not isinstance(ville, str) or ville is None:
             raise TypeError("ville doit être un str")
         self.__id_match = id_match
         self.__heure_debut = heure_debut
@@ -60,6 +70,10 @@ class Match:
         self.__score: dict = score if score is not None else {}
         self.__arbitre = arbitre
         self.__id_csv = id_csv
+        self.__statistiques_diverses = statistiques_diverses
+        self.__duree = duree
+
+
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Match):
@@ -162,6 +176,23 @@ class Match:
     @id_csv.setter
     def id_csv(self, valeur: int | None):
         self.__id_csv = valeur
+
+    @property
+    def duree(self) -> int | None:
+        """int | None: Durée du match en minutes"""
+        return self.__duree
+
+    @duree.setter
+    def duree(self, valeur: int | None):
+        self.__duree = valeur
+
+
+    @property
+    def statistiques_diverses(self) -> dict:
+        """dict: Statistiques diverses"""
+        return self.__statistiques_diverses
+
+    
 
     def ajouter_equipe(self, equipe: Equipe) -> None:
         """Ajoute une équipe au match.

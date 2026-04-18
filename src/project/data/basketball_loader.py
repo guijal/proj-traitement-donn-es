@@ -1,6 +1,8 @@
 from ..models.equipe import Equipe
 from ..models.sport import Sport
 from ..models.competiteur import Competiteur
+from ..models.match import Match
+from ..models.competition import Competition
 from .base_loader import BaseLoader
 
 
@@ -27,7 +29,7 @@ class BasketballLoader(BaseLoader):
 
         self.charger_equipes("basketball/team.csv")
         self.charger_joueurs("basketball/player.csv")
-        # self.charger_matchs("basketball/game.csv")
+        self.charger_matchs("basketball/game.csv")
 
     def charger_equipes(self, nom_fichier: str) -> None:
         donnees = self._lire_csv(nom_fichier)
@@ -81,6 +83,32 @@ class BasketballLoader(BaseLoader):
             # ajout du joueur dans l'équipe associée
             id_equipe = self.map_equipes[int(ligne["team_id"])]
             self.db.equipes[id_equipe].liste_joueurs.append(competiteur)
+
+    def charger_matchs(self, nom_fichier: str) -> None:
+        donnees = self._lire_csv(nom_fichier)
+        for ligne in donnees:
+            id_csv = int(ligne["game_id"])
+            nouvel_id = self.db.generer_id_match()
+            self.map_matchs[id_csv] = nouvel_id
+
+            #équipes en jeu
+            equipe_home = self.db.equipes[self.map_equipes[int(ligne["team_id_home"])]]
+            equipe_away = self.db.equipes[self.map_equipes[int(ligne["team_id_away"])]]
+            match = Match(
+                id_match=nouvel_id,
+                jour=self._parser_date(ligne["game_date"]),
+                id_csv=id_csv,
+                liste_equipes_participantes=[equipe_home, equipe_away],
+                score={equipe_home: ligne["pts_home"], equipe_away: ligne["pts_away"]},
+                duree=int(ligne["min"])//5 #duree dun match dapres les explis du prof (selon les temps additionnel)
+            )
+            # Ajout dans la db
+            self.db.matchs[nouvel_id] = match
+
+            
+
+
+
 
     # on peut créer d'autres méthodes qui permettent de calculer d'autres infos à partir des données csv
     # on peut utiliser pandas pour ce faire
