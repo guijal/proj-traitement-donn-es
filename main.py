@@ -19,13 +19,7 @@ avec la ligne " if __name__ == "__main__": "
 """
 
 
-def main():
-    # 1. Initialisation de la base de données en mémoire
-    db = Database()
-
-    # 2. Initialisation de l'instance de chargement puis injection de la base de données
-    loader = CSVLoader(data_directory="data/raw", db=db)
-    loader.charger_tout()
+""" TESTSSSS
 
     # test afficher les données pour team de basket
     registre_equipes = db.equipes
@@ -56,6 +50,84 @@ def main():
                 print("Equipe du joueur :", equipe.nom_officiel)
     
 
+"""
+
+def main():
+    # 1. initialisation de la bdd
+    db = Database()
+
+    # 2. load des données
+    print("Chargement des données en cours, veuillez patienter...")
+    loader = CSVLoader(data_directory="data/raw", db=db)
+    loader.charger_tout()
+    print("Chargement terminé !\n")
+
+    # 3. Activation de l'app 
+    print("     ===== Bienvenue dans l'application =====     ")
+    reponse_admin = input("Voulez-vous activer le mode administrateur ? (o/n) : ").strip().lower()
+    mode_admin = (reponse_admin == "o" or reponse_admin == "oui")
+
+    if mode_admin:
+        print("\n>>> Mode Administrateur activé (Modifications autorisées) <<<")
+    else:
+        print("\n>>> Mode Visiteur activé (Lecture seule) <<<")
+
+    # 4. Boucle principale de l'interface
+    while True:
+        print("\n" + "="*35)
+        print("         MENU PRINCIPAL")
+        print("="*35)
+        print("1. Afficher les sports")
+        print("2. Afficher les équipes")
+        print("3. Afficher les joueurs (limité à 50)")
+        print("4. Afficher les matchs (limité à 20)")
+        print("5. Afficher les compétitions")
+        print("0. Quitter l'application")
+        print("="*35)
+
+        choix = input("Votre choix : ").strip()
+
+        if choix == "1":
+            print("\n--- Liste des Sports ---")
+            for sport in db.sports.values():
+                print(f"- {sport}")
+
+        elif choix == "2":
+            print("\n--- Liste des Équipes ---")
+            for equipe in db.equipes.values():
+                print(f"- {equipe}")
+
+        elif choix == "3":
+            print("\n--- Liste des Joueurs ---")
+            limite = 50
+            for i, joueur in enumerate(db.competiteurs.values()):
+                if i >= limite:
+                    print(f"... et {len(db.competiteurs) - limite} autres joueurs.")
+                    break
+                print(f"- {joueur}")
+
+        elif choix == "4":
+            print("\n--- Liste des Matchs ---")
+            limite = 20
+            for i, match in enumerate(db.matchs.values()):
+                if i >= limite:
+                    print(f"... et {len(db.matchs) - limite} autres matchs.")
+                    break
+                print(f"- {match}")
+
+        elif choix == "5":
+            print("\n--- Liste des Compétitions ---")
+            if not db.competitions:
+                print("Aucune compétition n'a été trouvée dans la base de données.")
+            for comp in db.competitions.values():
+                print(f"- {comp}")
+
+        elif choix == "0":
+            print("\nFermeture de l'application. À bientôt :D")
+            break
+
+        else:
+            print("\nErreur : Choix invalide. Veuillez entrer un chiffre entre 0 et 5.")
 
 
 if __name__ == "__main__":
