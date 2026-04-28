@@ -3,11 +3,11 @@ from datetime import datetime
 from abc import ABC, abstractmethod
 from pathlib import Path
 
-from ..models.sport import Sport
-from ..models.equipe import Equipe
-from ..models.competiteur import Competiteur
-from ..models.match import Match
-from ..models.competition import Competition
+from ..models.Sport import Sport
+from ..models.Equipe import Equipe
+from ..models.Competiteur import Competiteur
+from ..models.Match import Match
+from ..models.Competition import Competition
 
 from .database import Database
 
@@ -64,8 +64,10 @@ class BaseLoader(ABC):
         pass
 
     # méthodes de load
-    
-    def unique_charger_sport(self,nom:str, nb_joueurs_par_equipe:int, nb_equipes:int) -> None:
+
+    def unique_charger_sport(
+        self, nom: str, nb_joueurs_par_equipe: int, nb_equipes: int
+    ) -> None:
         """load du sport
 
         La structure des données étant spéciale. Il faut importer le sport "manuellement" à partir de notre connaissance des bdd
@@ -79,7 +81,7 @@ class BaseLoader(ABC):
             Nombre de joueurs par équipe
         nb_equipes : int
             Nombre d'équipes par compétition
-        """ 
+        """
         nouvel_id_sport = self.db.generer_id_sport()
         sport_basket = Sport(
             nom=nom,
@@ -94,7 +96,14 @@ class BaseLoader(ABC):
         self.sport = sport_basket
 
     # on peut utiliser les kwargs ici
-    def unique_charger_competition(self, nom:str, edition:str|None = None, organisateur:str | None = None, date_debut:str | None = None, date_fin:str | None = None):
+    def unique_charger_competition(
+        self,
+        nom: str,
+        edition: str | None = None,
+        organisateur: str | None = None,
+        date_debut: str | None = None,
+        date_fin: str | None = None,
+    ):
         """Load manuel d'une compétition
 
         Parameters
@@ -123,10 +132,9 @@ class BaseLoader(ABC):
         self.db.competitions[nouvel_id_competition] = competition
 
         self.competition = competition
-        #pour réutilisation
+        # pour réutilisation
 
-
-#- - -  - - - -
+    # - - -  - - - -
     # méthodes utilitaires :
 
     def _lire_csv(self, nom_fichier: str) -> list[dict]:
@@ -138,7 +146,7 @@ class BaseLoader(ABC):
 
     @staticmethod
     def _parser_date(date_str: str | None):
-        if date_str == "" or date_str is None: 
+        if date_str == "" or date_str is None:
             return None
         return datetime.strptime(date_str, "%Y-%m-%d").date()
 
@@ -160,9 +168,9 @@ class BaseLoader(ABC):
             return None
         # Conversion de lbs en kg (1 lb = 0.453592 kg)
         return float(weight_str) * 0.453592
-    
+
     @staticmethod
-    def _parser_stats_diverses_auto(colonne:str, valeur:str, dico:dict):
+    def _parser_stats_diverses_auto(colonne: str, valeur: str, dico: dict):
         try:
             if "." in valeur:
                 dico[colonne] = float(valeur)
@@ -174,7 +182,8 @@ class BaseLoader(ABC):
 
     @staticmethod
     def _parser_prenom_nom(nom_complet: str) -> tuple[str, str]:
-        prenom = nom_complet.split(" ")[0] # ce quil y a avant le premier espace
-        nom = " ".join(nom_complet.split(" ")[1:]) # ce quil y a après le premier espace
+        prenom = nom_complet.split(" ")[0]  # ce quil y a avant le premier espace
+        nom = " ".join(
+            nom_complet.split(" ")[1:]
+        )  # ce quil y a après le premier espace
         return prenom, nom
-

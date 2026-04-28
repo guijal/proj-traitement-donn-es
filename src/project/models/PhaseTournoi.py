@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from .noeudMatch import NoeudMatch
+from .NoeudMatch import NoeudMatch
 
 
 class PhaseTournoi(ABC):
@@ -14,11 +14,7 @@ class PhaseTournoi(ABC):
         Format de la phase (poule,élimination directe...).
     """
 
-    def __init__(
-        self,
-        format: str,
-        graphe_matchs: list | None = None
-    ):
+    def __init__(self, format: str, graphe_matchs: list | None = None):
         if not isinstance(format, str):
             raise TypeError("format doit être un str")
         self.__graphe_matchs: list = graphe_matchs if graphe_matchs is not None else []

@@ -1,5 +1,5 @@
-from .competition import Competition
-from .sport import Sport
+from .Competition import Competition
+from .Sport import Sport
 
 
 class GestionnaireApplication:

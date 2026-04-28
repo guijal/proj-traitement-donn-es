@@ -1,10 +1,9 @@
 from datetime import date, time
 
-from .equipe import Equipe
-from .arbitre import Arbitre
+from .Equipe import Equipe
+from .Arbitre import Arbitre
 
 from typing import Any
-
 
 
 class Match:
@@ -34,8 +33,9 @@ class Match:
         Statistiques diverses
     duree : int | None
         Durée du match en minutes
-    
+
     """
+
     def __init__(
         self,
         id_match: int,
@@ -65,16 +65,18 @@ class Match:
         self.__jour = jour
         self.__ville = ville
         self.__liste_equipes_participantes: list = (
-            liste_equipes_participantes if liste_equipes_participantes is not None else []
+            liste_equipes_participantes
+            if liste_equipes_participantes is not None
+            else []
         )
         self.__score: dict = score if score is not None else {}
         self.__arbitre = arbitre
         self.__lieu = lieu
         self.__id_csv = id_csv
-        self.__statistiques_diverses = statistiques_diverses if statistiques_diverses is not None else {}
+        self.__statistiques_diverses = (
+            statistiques_diverses if statistiques_diverses is not None else {}
+        )
         self.__duree = duree
-
-
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Match):
@@ -173,7 +175,7 @@ class Match:
     def id_csv(self) -> int | None:
         """int | None: Identifiant d'origine du CSV"""
         return self.__id_csv
-        
+
     @id_csv.setter
     def id_csv(self, valeur: int | None):
         self.__id_csv = valeur
@@ -187,13 +189,10 @@ class Match:
     def duree(self, valeur: int | None):
         self.__duree = valeur
 
-
     @property
     def statistiques_diverses(self) -> dict:
         """dict: Statistiques diverses"""
         return self.__statistiques_diverses
-
-    
 
     def ajouter_equipe(self, equipe: Equipe) -> None:
         """Ajoute une équipe au match.

@@ -1,6 +1,6 @@
 from datetime import date
 
-from .personne import Personne
+from .Personne import Personne
 
 
 class President(Personne):

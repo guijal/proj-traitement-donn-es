@@ -1,7 +1,7 @@
 from datetime import date
 
-from .tournoi import Tournoi
-from .sport import Sport
+from .Tournoi import Tournoi
+from .Sport import Sport
 
 
 class Competition:

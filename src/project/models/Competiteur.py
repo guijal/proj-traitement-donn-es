@@ -1,7 +1,7 @@
 from datetime import date
 
-from .personne import Personne
-from .sport import Sport
+from .Personne import Personne
+from .Sport import Sport
 
 
 class Competiteur(Personne):

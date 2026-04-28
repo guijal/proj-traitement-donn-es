@@ -1,12 +1,12 @@
-from ..models.sport import Sport
-from ..models.equipe import Equipe
-from ..models.competiteur import Competiteur
-from ..models.match import Match
-from ..models.competition import Competition
-from ..models.arbitre import Arbitre
-from ..models.coach import Coach
-from ..models.medaille import Medaille
-from ..models.tournoi import Tournoi
+from ..models.Sport import Sport
+from ..models.Equipe import Equipe
+from ..models.Competiteur import Competiteur
+from ..models.Match import Match
+from ..models.Competition import Competition
+from ..models.Arbitre import Arbitre
+from ..models.Coach import Coach
+from ..models.Medaille import Medaille
+from ..models.Tournoi import Tournoi
 
 
 class Database:
@@ -31,7 +31,6 @@ class Database:
         self.coachs: dict[int, Coach] = {}
         self.medailles: dict[int, Medaille] = {}
         self.tournois: dict[int, Tournoi] = {}
-
 
         # On ajoutera les arbitres, les matchs, ou toute autre classe considérée comme "donnée" ici.
         # Puis on leur attribut un id unique
@@ -84,7 +83,8 @@ class Database:
         self._auto_increment_id_tournoi += 1
         return self._auto_increment_id_tournoi
 
-#  - - - - - - - - - - 
-    #
-    # placer toutes les méthodes de recherche / modification ici
-    # Cela correspond à notre actuelle classe GestionnaireApplication mais restreinte ( pas la gestion admin )
+
+#  - - - - - - - - - -
+#
+# placer toutes les méthodes de recherche / modification ici
+# Cela correspond à notre actuelle classe GestionnaireApplication mais restreinte ( pas la gestion admin )

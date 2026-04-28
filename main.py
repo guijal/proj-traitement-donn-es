@@ -10,7 +10,6 @@ from src.project.data.database import Database
 import src.project.utils.utils_interface as utils_interface
 
 
-
 """
 Créer une fonction main a plusieurs avantages :
 
@@ -56,7 +55,6 @@ avec la ligne " if __name__ == "__main__": "
 """
 
 
-
 def main():
     # 1. initialisation de la bdd
     db = Database()
@@ -67,10 +65,12 @@ def main():
     loader.charger_tout()
     print("Chargement terminé !\n")
 
-    # 3. Activation de l'app 
+    # 3. Activation de l'app
     print("     ===== Bienvenue dans l'application =====     ")
-    reponse_admin = input("Voulez-vous activer le mode administrateur ? (o/n) : ").strip().lower()
-    mode_admin = (reponse_admin == "o" or reponse_admin == "oui")
+    reponse_admin = (
+        input("Voulez-vous activer le mode administrateur ? (o/n) : ").strip().lower()
+    )
+    mode_admin = reponse_admin == "o" or reponse_admin == "oui"
 
     if mode_admin:
         print("\n>>> Mode Administrateur activé (Modifications autorisées) <<<")
@@ -79,16 +79,16 @@ def main():
 
     # 4. Boucle principale de l'interface
     while True:
-        print("\n" + "="*35)
+        print("\n" + "=" * 35)
         print("         MENU PRINCIPAL")
-        print("="*35)
+        print("=" * 35)
         print("1. Afficher les sports")
         print("2. Afficher les équipes")
         print("3. Afficher les joueurs")
         print("4. Afficher les matchs")
         print("5. Afficher les compétitions")
         print("0. Quitter l'application")
-        print("="*35)
+        print("=" * 35)
 
         choix = input("Votre choix : ").strip()
 
@@ -99,13 +99,17 @@ def main():
             utils_interface.afficher_echantillon_hasard("Liste des Équipes", db.equipes)
 
         elif choix == "3":
-            utils_interface.afficher_echantillon_hasard("Liste des Joueurs", db.competiteurs)
+            utils_interface.afficher_echantillon_hasard(
+                "Liste des Joueurs", db.competiteurs
+            )
 
         elif choix == "4":
             utils_interface.afficher_echantillon_hasard("Liste des Matchs", db.matchs)
 
         elif choix == "5":
-            utils_interface.afficher_echantillon_hasard("Liste des Compétitions", db.competitions)
+            utils_interface.afficher_echantillon_hasard(
+                "Liste des Compétitions", db.competitions
+            )
 
         elif choix == "0":
             print("\nFermeture de l'application. À bientôt :D")
