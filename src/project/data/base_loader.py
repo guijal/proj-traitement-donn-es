@@ -172,3 +172,9 @@ class BaseLoader(ABC):
             # Si ce n'est pas un nombre on laisse en str
             dico[colonne] = valeur
 
+    @staticmethod
+    def _parser_prenom_nom(nom_complet: str) -> tuple[str, str]:
+        prenom = nom_complet.split(" ")[0] # ce quil y a avant le premier espace
+        nom = " ".join(nom_complet.split(" ")[1:]) # ce quil y a après le premier espace
+        return prenom, nom
+

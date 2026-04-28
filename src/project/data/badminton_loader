@@ -1,0 +1,61 @@
+from ..models.equipe import Equipe
+from ..models.sport import Sport
+from ..models.competiteur import Competiteur
+from ..models.match import Match
+from ..models.competition import Competition
+from .base_loader import BaseLoader
+
+
+class BadmintonLoader(BaseLoader):
+    """Loader spécifique pour les données du bad.
+
+    Suit la structure d'import générale (c.f. base_loader.py)
+    """
+
+    def __init__(self, data_directory: str, db):
+        super().__init__(data_directory, db)
+
+        
+    def charger_tout(self) -> None:
+        """Orchestre le chargement de toutes les données liées au badminton.
+
+        Pour chaque dossier, créer le load du sport.
+        Pour chaque fichier dans le dossier de données, créer une méthode qui instancie les données.
+        ! Mettre les chargements dans l'ordre : par ex les équipes doivent être chargées avant les matchs
+        """
+
+        # Ici on créé le/les sports en lien avec les csv car il n'y a pas de "sports.csv", il faut les créer un par un selon les données fournies
+        self.unique_charger_sport("Badminton", 2, 1)
+
+        self.charger_joueurs("badminton/player.csv")
+        self.charger_matchs("badminton/match.csv")
+
+
+
+    def charger_joueurs(self, nom_fichier: str) -> None:
+        donnees = self._lire_csv(nom_fichier)
+
+        for ligne in donnees:
+            nouvel_id = self.db.generer_id_personne()
+
+            prenom, nom = self._parser_prenom_nom(ligne["name"])
+            competiteur = Competiteur(
+                id_personne=nouvel_id,
+                nom=nom,
+                prenom=prenom,
+                sport_pratique=self.sport,
+                pays=ligne["country"]
+            )
+            # Ajout dans la db
+            self.db.competiteurs[nouvel_id] = competiteur
+
+
+    
+            
+
+
+
+
+    # on peut créer d'autres méthodes qui permettent de calculer d'autres infos à partir des données csv
+    # on peut utiliser pandas pour ce faire
+    # exemple here : https://foad-moodle.ensai.fr/pluginfile.php/47664/mod_resource/content/2/Exemple%20-%20Joueuses%20de%20tennis.html
