@@ -7,6 +7,9 @@
 
 from src.project.data.csv_loader import CSVLoader
 from src.project.data.database import Database
+import src.project.utils.utils_interface as utils_interface
+
+
 
 """
 Créer une fonction main a plusieurs avantages :
@@ -52,6 +55,8 @@ avec la ligne " if __name__ == "__main__": "
 
 """
 
+
+
 def main():
     # 1. initialisation de la bdd
     db = Database()
@@ -79,8 +84,8 @@ def main():
         print("="*35)
         print("1. Afficher les sports")
         print("2. Afficher les équipes")
-        print("3. Afficher les joueurs (limité à 50)")
-        print("4. Afficher les matchs (limité à 20)")
+        print("3. Afficher les joueurs")
+        print("4. Afficher les matchs")
         print("5. Afficher les compétitions")
         print("0. Quitter l'application")
         print("="*35)
@@ -88,39 +93,19 @@ def main():
         choix = input("Votre choix : ").strip()
 
         if choix == "1":
-            print("\n--- Liste des Sports ---")
-            for sport in db.sports.values():
-                print(f"- {sport}")
+            utils_interface.afficher_echantillon_hasard("Liste des Sports", db.sports)
 
         elif choix == "2":
-            print("\n--- Liste des Équipes ---")
-            for equipe in db.equipes.values():
-                print(f"- {equipe}")
+            utils_interface.afficher_echantillon_hasard("Liste des Équipes", db.equipes)
 
         elif choix == "3":
-            print("\n--- Liste des Joueurs ---")
-            limite = 50
-            for i, joueur in enumerate(db.competiteurs.values()):
-                if i >= limite:
-                    print(f"... et {len(db.competiteurs) - limite} autres joueurs.")
-                    break
-                print(f"- {joueur}")
+            utils_interface.afficher_echantillon_hasard("Liste des Joueurs", db.competiteurs)
 
         elif choix == "4":
-            print("\n--- Liste des Matchs ---")
-            limite = 20
-            for i, match in enumerate(db.matchs.values()):
-                if i >= limite:
-                    print(f"... et {len(db.matchs) - limite} autres matchs.")
-                    break
-                print(f"- {match}")
+            utils_interface.afficher_echantillon_hasard("Liste des Matchs", db.matchs)
 
         elif choix == "5":
-            print("\n--- Liste des Compétitions ---")
-            if not db.competitions:
-                print("Aucune compétition n'a été trouvée dans la base de données.")
-            for comp in db.competitions.values():
-                print(f"- {comp}")
+            utils_interface.afficher_echantillon_hasard("Liste des Compétitions", db.competitions)
 
         elif choix == "0":
             print("\nFermeture de l'application. À bientôt :D")

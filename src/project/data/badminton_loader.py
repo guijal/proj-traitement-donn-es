@@ -25,7 +25,7 @@ class BadmintonLoader(BaseLoader):
         """
 
         # Ici on créé le/les sports en lien avec les csv car il n'y a pas de "sports.csv", il faut les créer un par un selon les données fournies
-        self.unique_charger_sport("Badminton", 2, 1)
+        self.unique_charger_sport("Badminton", 1, 2)
 
         self.charger_joueurs("badminton/player.csv")
         # self.charger_matchs("badminton/match.csv")
