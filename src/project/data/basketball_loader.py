@@ -66,8 +66,8 @@ class BasketballLoader(BaseLoader):
 
             competiteur = Competiteur(
                 id_personne=nouvel_id,
-                nom=ligne["first_name"],
-                prenom=ligne["last_name"],
+                prenom=ligne["first_name"],
+                nom=ligne["last_name"],
                 date_naissance=self._parser_date(ligne["birthdate"]),
                 id_csv=id_csv,
                 sport_pratique=self.sport,
