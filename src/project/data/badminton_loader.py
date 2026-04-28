@@ -1,8 +1,8 @@
-from ..models.equipe import Equipe
-from ..models.sport import Sport
-from ..models.competiteur import Competiteur
-from ..models.match import Match
-from ..models.competition import Competition
+from ..models.Equipe import Equipe
+from ..models.Sport import Sport
+from ..models.Competiteur import Competiteur
+from ..models.Match import Match
+from ..models.Competition import Competition
 from .base_loader import BaseLoader
 
 
@@ -15,7 +15,6 @@ class BadmintonLoader(BaseLoader):
     def __init__(self, data_directory: str, db):
         super().__init__(data_directory, db)
 
-        
     def charger_tout(self) -> None:
         """Orchestre le chargement de toutes les données liées au badminton.
 
@@ -30,8 +29,6 @@ class BadmintonLoader(BaseLoader):
         self.charger_joueurs("badminton/player.csv")
         # self.charger_matchs("badminton/match.csv")
 
-
-
     def charger_joueurs(self, nom_fichier: str) -> None:
         donnees = self._lire_csv(nom_fichier)
 
@@ -44,17 +41,10 @@ class BadmintonLoader(BaseLoader):
                 nom=nom,
                 prenom=prenom,
                 sport_pratique=self.sport,
-                pays=ligne["country"]
+                pays=ligne["country"],
             )
             # Ajout dans la db
             self.db.competiteurs[nouvel_id] = competiteur
-
-
-    
-            
-
-
-
 
     # on peut créer d'autres méthodes qui permettent de calculer d'autres infos à partir des données csv
     # on peut utiliser pandas pour ce faire
