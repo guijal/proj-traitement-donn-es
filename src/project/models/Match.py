@@ -48,16 +48,16 @@ class Match:
         heure_fin: time | None = None,
         arbitre=None,
         id_csv: int | None = None,
-        statistiques_diverses: dict[str, Any] = dict(),
+        statistiques_diverses: dict[str, Any] | None = None,
         duree: int | None = None,
     ):
         if not isinstance(id_match, int):
             raise TypeError("id_match doit être un int")
-        if not isinstance(jour, date) or jour is None:
+        if jour is not None and not isinstance(jour, date):
             raise TypeError("jour doit être un datetime.date")
-        if not isinstance(lieu, str) or lieu is None:
+        if lieu is not None and not isinstance(lieu, str):
             raise TypeError("lieu doit être un str")
-        if not isinstance(ville, str) or ville is None:
+        if ville is not None and not isinstance(ville, str):
             raise TypeError("ville doit être un str")
         self.__id_match = id_match
         self.__heure_debut = heure_debut
@@ -69,8 +69,9 @@ class Match:
         )
         self.__score: dict = score if score is not None else {}
         self.__arbitre = arbitre
+        self.__lieu = lieu
         self.__id_csv = id_csv
-        self.__statistiques_diverses = statistiques_diverses
+        self.__statistiques_diverses = statistiques_diverses if statistiques_diverses is not None else {}
         self.__duree = duree
 
 
@@ -99,35 +100,35 @@ class Match:
         self.__id_match = valeur
 
     @property
-    def jour(self) -> date:
-        """date: Date du match"""
+    def jour(self) -> date | None:
+        """date | None: Date du match"""
         return self.__jour
 
     @jour.setter
-    def jour(self, valeur: date):
-        if not isinstance(valeur, date):
+    def jour(self, valeur: date | None):
+        if valeur is not None and not isinstance(valeur, date):
             raise TypeError("jour doit être un datetime.date")
         self.__jour = valeur
 
     @property
-    def lieu(self) -> str:
-        """str: Lieu du match"""
+    def lieu(self) -> str | None:
+        """str | None: Lieu du match"""
         return self.__lieu
 
     @lieu.setter
-    def lieu(self, valeur: str):
-        if not isinstance(valeur, str):
+    def lieu(self, valeur: str | None):
+        if valeur is not None and not isinstance(valeur, str):
             raise TypeError("lieu doit être un str")
         self.__lieu = valeur
 
     @property
-    def ville(self) -> str:
-        """str: Ville du match"""
+    def ville(self) -> str | None:
+        """str | None: Ville du match"""
         return self.__ville
 
     @ville.setter
-    def ville(self, valeur: str):
-        if not isinstance(valeur, str):
+    def ville(self, valeur: str | None):
+        if valeur is not None and not isinstance(valeur, str):
             raise TypeError("ville doit être un str")
         self.__ville = valeur
 
