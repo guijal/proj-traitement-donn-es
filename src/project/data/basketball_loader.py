@@ -94,17 +94,28 @@ class BasketballLoader(BaseLoader):
             #équipes en jeu
             equipe_home = self.db.equipes[self.map_equipes[int(ligne["team_id_home"])]]
             equipe_away = self.db.equipes[self.map_equipes[int(ligne["team_id_away"])]]
+            
+            # Récupération des colonnes que l'on met dans statistiques_diverses
+            colonnes_diverses = {
+                "fgm_home","fga_home","fg_pct_home","fg3m_home","fg3a_home","fg3_pct_home","ftm_home","fta_home","ft_pct_home","oreb_home","dreb_home","reb_home","ast_home","stl_home","blk_home","tov_home","pf_home","fgm_away","fga_away","fg_pct_away","fg3m_away","fg3a_away","fg3_pct_away","ftm_away","fta_away","ft_pct_away","oreb_away","dreb_away","reb_away","ast_away","stl_away","blk_away","tov_away","pf_away"
+            }
+            stats_diverses:dict = {} 
+            for cle, valeur in ligne.items():
+                if cle in colonnes_diverses:
+                    # Essayer de convertir en float/int si c'est numérique
+                    self._parser_stats_diverses_auto(cle, valeur, stats_diverses)
+
             match = Match(
                 id_match=nouvel_id,
                 jour=self._parser_date(ligne["game_date"]),
                 id_csv=id_csv,
                 liste_equipes_participantes=[equipe_home, equipe_away],
-                score={equipe_home: ligne["pts_home"], equipe_away: ligne["pts_away"]},
+                score={equipe_home: int(ligne["pts_home"]), equipe_away: int(ligne["pts_away"])},
                 duree=int(ligne["min"])//5 #duree dun match dapres les explis du prof (selon les temps additionnel)
             )
+            
             # Ajout dans la db
             self.db.matchs[nouvel_id] = match
-
             
 
 

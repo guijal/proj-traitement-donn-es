@@ -160,3 +160,15 @@ class BaseLoader(ABC):
             return None
         # Conversion de lbs en kg (1 lb = 0.453592 kg)
         return float(weight_str) * 0.453592
+    
+    @staticmethod
+    def _parser_stats_diverses_auto(colonne:str, valeur:str, dico:dict):
+        try:
+            if "." in valeur:
+                dico[colonne] = float(valeur)
+            else:
+                dico[colonne] = int(valeur)
+        except ValueError:
+            # Si ce n'est pas un nombre on laisse en str
+            dico[colonne] = valeur
+
