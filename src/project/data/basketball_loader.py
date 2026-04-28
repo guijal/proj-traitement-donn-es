@@ -62,7 +62,7 @@ class BasketballLoader(BaseLoader):
         donnees = self._lire_csv(nom_fichier)
         for ligne in donnees:
             id_csv = int(ligne["person_id"])
-            nouvel_id = self.db.generer_id_personne()
+            nouvel_id = self.db.generer_id_competiteur()
             self.map_personnes[id_csv] = nouvel_id
 
             competiteur = Competiteur(

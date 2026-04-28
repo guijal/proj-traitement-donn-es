@@ -36,7 +36,7 @@ class BadmintonLoader(BaseLoader):
         donnees = self._lire_csv(nom_fichier)
 
         for ligne in donnees:
-            nouvel_id = self.db.generer_id_personne()
+            nouvel_id = self.db.generer_id_competiteur()
 
             prenom, nom = self._parser_prenom_nom(ligne["name"])
             competiteur = Competiteur(

@@ -3,6 +3,10 @@ from ..models.equipe import Equipe
 from ..models.competiteur import Competiteur
 from ..models.match import Match
 from ..models.competition import Competition
+from ..models.arbitre import Arbitre
+from ..models.coach import Coach
+from ..models.medaille import Medaille
+from ..models.tournoi import Tournoi
 
 
 class Database:
@@ -23,6 +27,10 @@ class Database:
         self.competiteurs: dict[int, Competiteur] = {}
         self.matchs: dict[int, Match] = {}
         self.competitions: dict[int, Competition] = {}
+        self.arbitres: dict[int, Arbitre] = {}
+        self.coachs: dict[int, Coach] = {}
+        self.medailles: dict[int, Medaille] = {}
+        self.tournois: dict[int, Tournoi] = {}
 
 
         # On ajoutera les arbitres, les matchs, ou toute autre classe considérée comme "donnée" ici.
@@ -31,10 +39,13 @@ class Database:
         # Auto-incrément pour générer les id uniques
         self._auto_increment_id_sport = 0
         self._auto_increment_id_equipe = 0
-        self._auto_increment_id_personne = 0
+        self._auto_increment_id_competiteur = 0
         self._auto_increment_id_match = 0
         self._auto_increment_id_competition = 0
         self._auto_increment_id_medaille = 0
+        self._auto_increment_id_arbitre = 0
+        self._auto_increment_id_coach = 0
+        self._auto_increment_id_tournoi = 0
 
     # Pour chaque id on créer une méthode qui génère le bon id (on modifie par directement l'attribut protégé)
     def generer_id_sport(self) -> int:
@@ -45,9 +56,9 @@ class Database:
         self._auto_increment_id_equipe += 1
         return self._auto_increment_id_equipe
 
-    def generer_id_personne(self) -> int:
-        self._auto_increment_id_personne += 1
-        return self._auto_increment_id_personne
+    def generer_id_competiteur(self) -> int:
+        self._auto_increment_id_competiteur += 1
+        return self._auto_increment_id_competiteur
 
     def generer_id_match(self) -> int:
         self._auto_increment_id_match += 1
@@ -56,6 +67,22 @@ class Database:
     def generer_id_competition(self) -> int:
         self._auto_increment_id_competition += 1
         return self._auto_increment_id_competition
+
+    def generer_id_arbitre(self) -> int:
+        self._auto_increment_id_arbitre += 1
+        return self._auto_increment_id_arbitre
+
+    def generer_id_coach(self) -> int:
+        self._auto_increment_id_coach += 1
+        return self._auto_increment_id_coach
+
+    def generer_id_medaille(self) -> int:
+        self._auto_increment_id_medaille += 1
+        return self._auto_increment_id_medaille
+
+    def generer_id_tournoi(self) -> int:
+        self._auto_increment_id_tournoi += 1
+        return self._auto_increment_id_tournoi
 
 #  - - - - - - - - - - 
     #
