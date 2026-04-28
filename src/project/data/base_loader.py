@@ -148,7 +148,10 @@ class BaseLoader(ABC):
     def _parser_date(date_str: str | None):
         if date_str == "" or date_str is None:
             return None
-        return datetime.strptime(date_str, "%Y-%m-%d").date()
+        try:
+            return datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S").date()
+        except ValueError:
+            return datetime.strptime(date_str, "%Y-%m-%d").date()
 
     @staticmethod
     def _parser_height(height_str: str):
