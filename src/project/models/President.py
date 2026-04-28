@@ -17,18 +17,27 @@ class President(Personne):
     def __init__(
         self,
         id_personne: int,
-        sex: str,
         nom: str,
         prenom: str,
-        date_naissance: date,
-        nationalite: str,
-        taille: float,
-        poids: float,
         surnom: str,
         nombre_medailles: int,
+        sex: str | None = None,
+        date_naissance: date | None = None,
+        nationalite: str | None = None,
+        pays: str | None = None,
+        taille: float | None = None,
+        poids: float | None = None,
     ):
         super().__init__(
-            id_personne, sex, nom, prenom, date_naissance, nationalite, taille, poids
+            id_personne=id_personne,
+            nom=nom,
+            prenom=prenom,
+            sex=sex,
+            date_naissance=date_naissance,
+            nationalite=nationalite,
+            pays=pays,
+            taille=taille,
+            poids=poids,
         )
         if not isinstance(surnom, str):
             raise TypeError("surnom doit être un str")

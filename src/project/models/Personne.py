@@ -19,6 +19,8 @@ class Personne(ABC):
         Date de naissance
     nationalite : str
         Code nationalité (ex: FRA)
+    pays : str | None
+        Pays de la personne
     taille : float | None
         Taille en cm
     poids : float | None
@@ -35,6 +37,7 @@ class Personne(ABC):
         sex: str | None = None,
         date_naissance: date | None = None,
         nationalite: str | None = None,
+        pays: str | None = None,
         taille: float | None = None,
         poids: float | None = None,
         id_csv: int | None = None,
@@ -51,6 +54,8 @@ class Personne(ABC):
             raise TypeError("date_naissance doit être un datetime.date")
         if nationalite is not None and not isinstance(nationalite, str):
             raise TypeError("nationalite doit être un str")
+        if pays is not None and not isinstance(pays, str):
+            raise TypeError("pays doit être un str")
         if taille is not None and not isinstance(taille, float):
             raise TypeError("taille doit être un float")
         if poids is not None and not isinstance(poids, float):
@@ -62,6 +67,7 @@ class Personne(ABC):
         self.__prenom = prenom
         self.__date_naissance = date_naissance
         self.__nationalite = nationalite
+        self.__pays = pays
         self.__taille = float(taille) if taille is not None else None
         self.__poids = float(poids) if poids is not None else None
         self.__statut: dict = {}
@@ -140,6 +146,17 @@ class Personne(ABC):
         if valeur is not None and not isinstance(valeur, str):
             raise TypeError("nationalite doit être un str")
         self.__nationalite = valeur
+
+    @property
+    def pays(self) -> str | None:
+        """str | None: Pays de la personne"""
+        return self.__pays
+
+    @pays.setter
+    def pays(self, valeur: str | None):
+        if valeur is not None and not isinstance(valeur, str):
+            raise TypeError("pays doit être un str")
+        self.__pays = valeur
 
     @property
     def taille(self) -> float | None:

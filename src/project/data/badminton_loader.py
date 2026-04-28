@@ -28,7 +28,7 @@ class BadmintonLoader(BaseLoader):
         self.unique_charger_sport("Badminton", 2, 1)
 
         self.charger_joueurs("badminton/player.csv")
-        self.charger_matchs("badminton/match.csv")
+        # self.charger_matchs("badminton/match.csv")
 
 
 
