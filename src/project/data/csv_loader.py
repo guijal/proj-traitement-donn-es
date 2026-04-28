@@ -1,5 +1,7 @@
 from .database import Database
 from .basketball_loader import BasketballLoader
+from .badminton_loader import BadmintonLoader
+    
 
 
 class CSVLoader:
@@ -23,6 +25,10 @@ class CSVLoader:
         # On délègue le chargement de chaque sport à son loader spécifique
         loader_basket = BasketballLoader(self.data_directory, self.db)
         loader_basket.charger_tout()
+
+        loader_badminton = BadmintonLoader(self.data_directory, self.db)
+        loader_badminton.charger_tout()
+
 
         # On ajoutera tous les autres loaders ici
 
