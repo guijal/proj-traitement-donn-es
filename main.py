@@ -65,8 +65,18 @@ def main():
     loader.charger_tout()
     print("Chargement terminé !\n")
 
-    # 3. Activation de l'app
+    # 3. Choix du mode
     print("     ===== Bienvenue dans l'application =====     ")
+    print("\n1. Interface graphique (GUI)")
+    print("2. Interface console (CLI)")
+    choix_mode = input("\nVotre choix : ").strip()
+
+    if choix_mode == "1":
+        from src.project.interface.app import lancer_app
+        lancer_app()
+        return
+
+    # 4. Mode CLI
     reponse_admin = (
         input("Voulez-vous activer le mode administrateur ? (o/n) : ").strip().lower()
     )
@@ -77,7 +87,7 @@ def main():
     else:
         print("\n>>> Mode Visiteur activé (Lecture seule) <<<")
 
-    # 4. Boucle principale de l'interface
+    # 5. Boucle principale de l'interface
     while True:
         print("\n" + "=" * 35)
         print("         MENU PRINCIPAL")
