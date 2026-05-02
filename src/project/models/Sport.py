@@ -18,7 +18,7 @@ class Sport:
         nom: str,
         numero: int,
         nb_joueurs_par_equipe: int,
-        nb_equipes: int
+        nb_equipes: int,
     ):
         if not isinstance(nom, str):
             raise TypeError("nom doit être un str")
@@ -28,7 +28,7 @@ class Sport:
             raise TypeError("nb_joueurs_par_equipe doit être un int")
         if not isinstance(nb_equipes, int):
             raise TypeError("nb_equipes doit être un int")
-        
+
         self.__nom = nom
         self.__numero = numero
         self.__nb_joueurs_par_equipe = nb_joueurs_par_equipe
@@ -91,5 +91,3 @@ class Sport:
         if not isinstance(valeur, int):
             raise TypeError("nb_equipes doit être un int")
         self.__nb_equipes = valeur
-
-    

@@ -5,7 +5,7 @@
 2. Lancer l'application via l'interface
 """
 
-from src.project.data.csv_loader import CSVLoader
+from src.project.data.csv_loader_propre import CSVLoader
 from src.project.data.database import Database
 import src.project.utils.utils_interface as utils_interface
 
@@ -61,16 +61,20 @@ def main():
 
     # 2. load des données
     print("Chargement des données en cours, veuillez patienter...")
-    loader = CSVLoader(data_directory="data/raw", db=db)
+    loader = CSVLoader(db=db)
     loader.charger_tout()
     print("Chargement terminé !\n")
 
     # 3. Activation de l'app
     print("     ===== Bienvenue dans l'application =====     ")
-    reponse_admin = (
-        input("Voulez-vous activer le mode administrateur ? (o/n) : ").strip().lower()
-    )
-    mode_admin = reponse_admin == "o" or reponse_admin == "oui"
+    reponse_admin = ""
+    while reponse_admin not in ["o", "n"]:
+        reponse_admin = (
+            input("Voulez-vous activer le mode administrateur ? (o/n) : ")
+            .strip()
+            .lower()
+        )
+    mode_admin = reponse_admin == "o"
 
     if mode_admin:
         print("\n>>> Mode Administrateur activé (Modifications autorisées) <<<")
@@ -79,6 +83,7 @@ def main():
 
     # 4. Boucle principale de l'interface
     while True:
+        # ici toutes les actions utilisateurs
         print("\n" + "=" * 35)
         print("         MENU PRINCIPAL")
         print("=" * 35)
@@ -115,6 +120,9 @@ def main():
             print("\nFermeture de l'application. À bientôt :D")
             break
 
+        # La toutes les actions du mode admin :
+
+        # ici autre :
         else:
             print("\nErreur : Choix invalide. Veuillez entrer un chiffre entre 0 et 5.")
 
