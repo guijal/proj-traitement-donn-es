@@ -1,3 +1,7 @@
+# Avant de lancer le code avec main il faut lancer creation_db_base.py
+
+
+
 # Projet traitement de données
 
 Le fichier README.md doit contenir les informations suivantes :  
