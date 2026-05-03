@@ -1,0 +1,330 @@
+id,_Equipe__id_equipe,_Equipe__nom_officiel,_Equipe__nom_abrege,_Equipe__surnom,_Equipe__ville,_Equipe__pays,_Equipe__code_pays,_Equipe__etat,_Equipe__genre,_Equipe__discipline,_Equipe__president,_Equipe__liste_joueurs,_Equipe__liste_coachs,_Equipe__annee_fondation,_Equipe__nb_medailles,_Equipe__id_csv
+1,1,Atlanta Hawks,ATL,,Atlanta,USA,US,Atlanta,masculin,1,,"[38, 68, 81, 123, 125, 153, 177, 187, 201, 227, 259, 261, 288, 305, 428]",[],,0,1610612737
+2,2,Boston Celtics,BOS,,Boston,USA,US,Massachusetts,masculin,1,,"[56, 76, 95, 154, 169, 182, 322, 326, 375, 406, 412, 417]",[],,0,1610612738
+3,3,Cleveland Cavaliers,CLE,,Cleveland,USA,US,Ohio,masculin,1,,"[8, 102, 132, 146, 235, 247, 271, 277, 278, 279, 295, 306, 309, 368, 396, 420]",[],,0,1610612739
+4,4,New Orleans Pelicans,NOP,,New Orleans,USA,US,Louisiana,masculin,1,,"[9, 91, 170, 173, 190, 207, 256, 287, 293, 352, 377, 392, 419]",[],,0,1610612740
+5,5,Chicago Bulls,CHI,,Chicago,USA,US,Illinois,masculin,1,,"[21, 37, 73, 97, 108, 112, 150, 205, 211, 230, 241, 358, 376, 378, 395, 405, 415]",[],,0,1610612741
+6,6,Dallas Mavericks,DAL,,Dallas,USA,US,Texas,masculin,1,,"[36, 61, 106, 152, 158, 160, 179, 191, 222, 234, 285, 299, 314, 423, 425]",[],,0,1610612742
+7,7,Denver Nuggets,DEN,,Denver,USA,US,Colorado,masculin,1,,"[50, 55, 66, 67, 139, 142, 151, 195, 204, 212, 289, 297, 403, 407]",[],,0,1610612743
+8,8,Golden State Warriors,GSW,,Golden State,USA,US,California,masculin,1,,"[19, 90, 100, 147, 148, 199, 231, 246, 281, 313, 318, 329, 342, 381, 410]",[],,0,1610612744
+9,9,Houston Rockets,HOU,,Houston,USA,US,Texas,masculin,1,,"[15, 74, 77, 96, 118, 133, 149, 216, 254, 260, 319, 353, 364, 374, 401]",[],,0,1610612745
+10,10,Los Angeles Clippers,LAC,,Los Angeles,USA,US,California,masculin,1,,"[31, 46, 85, 101, 188, 239, 252, 282, 315, 324, 325, 431]",[],,0,1610612746
+11,11,Los Angeles Lakers,LAL,,Los Angeles,USA,US,California,masculin,1,,"[34, 58, 92, 129, 156, 197, 330, 345, 351, 373, 382, 393, 398]",[],,0,1610612747
+12,12,Miami Heat,MIA,,Miami,USA,US,Florida,masculin,1,,"[3, 48, 60, 64, 65, 168, 175, 214, 248, 249, 257, 307, 334, 336, 338, 370, 394, 429, 430]",[],,0,1610612748
+13,13,Milwaukee Bucks,MIL,,Milwaukee,USA,US,Wisconsin,masculin,1,,"[7, 11, 12, 35, 70, 84, 87, 111, 145, 178, 189, 240, 263, 273, 321, 411]",[],,0,1610612749
+14,14,Minnesota Timberwolves,MIN,,Minnesota,USA,US,Minnesota,masculin,1,,"[6, 10, 83, 119, 140, 269, 275, 283, 298, 332, 335, 389]",[],,0,1610612750
+15,15,Brooklyn Nets,BKN,,Brooklyn,USA,US,New York,masculin,1,,"[51, 80, 89, 105, 114, 144, 164, 200, 303, 357, 372, 380]",[],,0,1610612751
+16,16,New York Knicks,NYK,,New York,USA,US,New York,masculin,1,,"[28, 59, 126, 155, 167, 198, 217, 264, 328, 337, 340, 360, 387, 400]",[],,0,1610612752
+17,17,Orlando Magic,ORL,,Orlando,USA,US,Florida,masculin,1,,"[13, 22, 40, 44, 71, 72, 128, 163, 165, 185, 192, 350, 371]",[],,0,1610612753
+18,18,Indiana Pacers,IND,,Indiana,USA,US,Indiana,masculin,1,,"[53, 57, 113, 157, 174, 176, 194, 202, 262, 265, 294, 302, 362, 379, 391, 426]",[],,0,1610612754
+19,19,Philadelphia 76ers,PHI,,Philadelphia,USA,US,Pennsylvania,masculin,1,,"[98, 121, 159, 162, 166, 184, 220, 226, 266, 270, 274, 296, 367, 390]",[],,0,1610612755
+20,20,Phoenix Suns,PHX,,Phoenix,USA,US,Arizona,masculin,1,,"[16, 32, 33, 41, 45, 86, 116, 122, 141, 232, 236, 237, 304, 312, 343, 386, 397, 399]",[],,0,1610612756
+21,21,Portland Trail Blazers,POR,,Portland,USA,US,Oregon,masculin,1,,"[203, 223, 242, 243, 301, 331, 355, 359, 384, 421]",[],,0,1610612757
+22,22,Sacramento Kings,SAC,,Sacramento,USA,US,California,masculin,1,,"[26, 94, 99, 110, 120, 127, 180, 238, 272, 276, 280, 290, 327, 346]",[],,0,1610612758
+23,23,San Antonio Spurs,SAS,,San Antonio,USA,US,Texas,masculin,1,,"[25, 30, 39, 49, 75, 82, 104, 143, 209, 233, 251, 267, 366, 404]",[],,0,1610612759
+24,24,Oklahoma City Thunder,OKC,,Oklahoma City,USA,US,Oklahoma,masculin,1,,"[63, 107, 136, 137, 181, 253, 317, 339, 348, 349, 402, 409, 413]",[],,0,1610612760
+25,25,Toronto Raptors,TOR,,Toronto,USA,US,Ontario,masculin,1,,"[1, 14, 24, 27, 29, 47, 109, 161, 224, 316, 320, 356, 408, 427]",[],,0,1610612761
+26,26,Utah Jazz,UTA,,Utah,USA,US,Utah,masculin,1,,"[4, 17, 69, 79, 115, 124, 134, 183, 206, 215, 219, 255, 308, 323, 347, 388]",[],,0,1610612762
+27,27,Memphis Grizzlies,MEM,,Memphis,USA,US,Tennessee,masculin,1,,"[2, 5, 23, 54, 78, 196, 218, 225, 229, 245, 284, 341, 361, 385, 416, 418]",[],,0,1610612763
+28,28,Washington Wizards,WAS,,Washington,USA,US,District of Columbia,masculin,1,,"[93, 130, 131, 135, 138, 186, 210, 221, 228, 286, 291, 300, 311, 354, 424]",[],,0,1610612764
+29,29,Detroit Pistons,DET,,Detroit,USA,US,Michigan,masculin,1,,"[18, 42, 43, 62, 88, 103, 117, 171, 193, 213, 244, 268, 369, 422]",[],,0,1610612765
+30,30,Charlotte Hornets,CHA,,Charlotte,USA,US,North Carolina,masculin,1,,"[20, 52, 172, 208, 250, 258, 292, 310, 333, 344, 363, 365, 383, 414]",[],,0,1610612766
+31,31,KRC Genk,GEN,,,,,,masculin,3,,[],[],,0,9987
+32,32,Beerschot AC,BAC,,,,,,masculin,3,,[],[],,0,9993
+33,33,SV Zulte-Waregem,ZUL,,,,,,masculin,3,,[],[],,0,10000
+34,34,Sporting Lokeren,LOK,,,,,,masculin,3,,[],[],,0,9994
+35,35,KSV Cercle Brugge,CEB,,,,,,masculin,3,,[],[],,0,9984
+36,36,RSC Anderlecht,AND,,,,,,masculin,3,,[],[],,0,8635
+37,37,KAA Gent,GEN,,,,,,masculin,3,,[],[],,0,9991
+38,38,RAEC Mons,MON,,,,,,masculin,3,,[],[],,0,9998
+39,39,FCV Dender EH,DEN,,,,,,masculin,3,,[],[],,0,7947
+40,40,Standard de Liège,STL,,,,,,masculin,3,,[],[],,0,9985
+41,41,KV Mechelen,MEC,,,,,,masculin,3,,[],[],,0,8203
+42,42,Club Brugge KV,CLB,,,,,,masculin,3,,[],[],,0,8342
+43,43,KSV Roeselare,ROS,,,,,,masculin,3,,[],[],,0,9999
+44,44,KV Kortrijk,KOR,,,,,,masculin,3,,[],[],,0,8571
+45,45,Tubize,TUB,,,,,,masculin,3,,[],[],,0,4049
+46,46,Royal Excel Mouscron,MOU,,,,,,masculin,3,,[],[],,0,9996
+47,47,KVC Westerlo,WES,,,,,,masculin,3,,[],[],,0,10001
+48,48,Sporting Charleroi,CHA,,,,,,masculin,3,,[],[],,0,9986
+49,49,Sint-Truidense VV,STT,,,,,,masculin,3,,[],[],,0,9997
+50,50,Lierse SK,LIE,,,,,,masculin,3,,[],[],,0,9989
+51,51,KAS Eupen,EUP,,,,,,masculin,3,,[],[],,0,6351
+52,52,Oud-Heverlee Leuven,O-H,,,,,,masculin,3,,[],[],,0,1773
+53,53,Waasland-Beveren,WAA,,,,,,masculin,3,,[],[],,0,8475
+54,54,KV Oostende,OOS,,,,,,masculin,3,,[],[],,0,8573
+55,55,Royal Excel Mouscron,MOP,,,,,,masculin,3,,[],[],,0,274581
+56,56,Manchester United,MUN,,,,,,masculin,3,,[],[],,0,10260
+57,57,Newcastle United,NEW,,,,,,masculin,3,,[],[],,0,10261
+58,58,Arsenal,ARS,,,,,,masculin,3,,[],[],,0,9825
+59,59,West Bromwich Albion,WBA,,,,,,masculin,3,,[],[],,0,8659
+60,60,Sunderland,SUN,,,,,,masculin,3,,[],[],,0,8472
+61,61,Liverpool,LIV,,,,,,masculin,3,,[],[],,0,8650
+62,62,West Ham United,WHU,,,,,,masculin,3,,[],[],,0,8654
+63,63,Wigan Athletic,WIG,,,,,,masculin,3,,[],[],,0,8528
+64,64,Aston Villa,AVL,,,,,,masculin,3,,[],[],,0,10252
+65,65,Manchester City,MCI,,,,,,masculin,3,,[],[],,0,8456
+66,66,Everton,EVE,,,,,,masculin,3,,[],[],,0,8668
+67,67,Blackburn Rovers,BLB,,,,,,masculin,3,,[],[],,0,8655
+68,68,Middlesbrough,MID,,,,,,masculin,3,,[],[],,0,8549
+69,69,Tottenham Hotspur,TOT,,,,,,masculin,3,,[],[],,0,8586
+70,70,Bolton Wanderers,BOL,,,,,,masculin,3,,[],[],,0,8559
+71,71,Stoke City,STK,,,,,,masculin,3,,[],[],,0,10194
+72,72,Hull City,HUL,,,,,,masculin,3,,[],[],,0,8667
+73,73,Fulham,FUL,,,,,,masculin,3,,[],[],,0,9879
+74,74,Chelsea,CHE,,,,,,masculin,3,,[],[],,0,8455
+75,75,Portsmouth,POR,,,,,,masculin,3,,[],[],,0,8462
+76,76,Birmingham City,BIR,,,,,,masculin,3,,[],[],,0,8658
+77,77,Wolverhampton Wanderers,WOL,,,,,,masculin,3,,[],[],,0,8602
+78,78,Burnley,BUR,,,,,,masculin,3,,[],[],,0,8191
+79,79,Blackpool,BLA,,,,,,masculin,3,,[],[],,0,8483
+80,80,Swansea City,SWA,,,,,,masculin,3,,[],[],,0,10003
+81,81,Queens Park Rangers,QPR,,,,,,masculin,3,,[],[],,0,10172
+82,82,Norwich City,NOR,,,,,,masculin,3,,[],[],,0,9850
+83,83,Southampton,SOU,,,,,,masculin,3,,[],[],,0,8466
+84,84,Reading,REA,,,,,,masculin,3,,[],[],,0,9798
+85,85,Crystal Palace,CRY,,,,,,masculin,3,,[],[],,0,9826
+86,86,Cardiff City,CAR,,,,,,masculin,3,,[],[],,0,8344
+87,87,Leicester City,LEI,,,,,,masculin,3,,[],[],,0,8197
+88,88,Bournemouth,BOU,,,,,,masculin,3,,[],[],,0,8678
+89,89,Watford,WAT,,,,,,masculin,3,,[],[],,0,9817
+90,90,AJ Auxerre,AUX,,,,,,masculin,3,,[],[],,0,8583
+91,91,FC Nantes,NAN,,,,,,masculin,3,,[],[],,0,9830
+92,92,Girondins de Bordeaux,BOR,,,,,,masculin,3,,[],[],,0,9827
+93,93,SM Caen,CAE,,,,,,masculin,3,,[],[],,0,7819
+94,94,Le Havre AC,LEH,,,,,,masculin,3,,[],[],,0,9746
+95,95,OGC Nice,NIC,,,,,,masculin,3,,[],[],,0,9831
+96,96,Le Mans FC,LEM,,,,,,masculin,3,,[],[],,0,8682
+97,97,FC Lorient,LOR,,,,,,masculin,3,,[],[],,0,8689
+98,98,Olympique Lyonnais,LYO,,,,,,masculin,3,,[],[],,0,9748
+99,99,Toulouse FC,TOU,,,,,,masculin,3,,[],[],,0,9941
+100,100,AS Monaco,MON,,,,,,masculin,3,,[],[],,0,9829
+101,101,Paris Saint-Germain,PSG,,,,,,masculin,3,,[],[],,0,9847
+102,102,AS Nancy-Lorraine,NAN,,,,,,masculin,3,,[],[],,0,8481
+103,103,LOSC Lille,LIL,,,,,,masculin,3,,[],[],,0,8639
+104,104,Stade Rennais FC,REN,,,,,,masculin,3,,[],[],,0,9851
+105,105,Olympique de Marseille,MAR,,,,,,masculin,3,,[],[],,0,8592
+106,106,FC Sochaux-Montbéliard,SOC,,,,,,masculin,3,,[],[],,0,9874
+107,107,Grenoble Foot 38,GRE,,,,,,masculin,3,,[],[],,0,9855
+108,108,Valenciennes FC,VAL,,,,,,masculin,3,,[],[],,0,9873
+109,109,AS Saint-Étienne,ETI,,,,,,masculin,3,,[],[],,0,9853
+110,110,RC Lens,LEN,,,,,,masculin,3,,[],[],,0,8588
+111,111,Montpellier Hérault SC,MON,,,,,,masculin,3,,[],[],,0,10249
+112,112,US Boulogne Cote D'Opale,BOU,,,,,,masculin,3,,[],[],,0,4170
+113,113,AC Arles-Avignon,ARL,,,,,,masculin,3,,[],[],,0,108893
+114,114,Stade Brestois 29,BRE,,,,,,masculin,3,,[],[],,0,8521
+115,115,AC Ajaccio,AJA,,,,,,masculin,3,,[],[],,0,8576
+116,116,Évian Thonon Gaillard FC,ETG,,,,,,masculin,3,,[],[],,0,4087
+117,117,Dijon FCO,DIJ,,,,,,masculin,3,,[],[],,0,9836
+118,118,Stade de Reims,REI,,,,,,masculin,3,,[],[],,0,9837
+119,119,SC Bastia,BAS,,,,,,masculin,3,,[],[],,0,7794
+120,120,ES Troyes AC,TRO,,,,,,masculin,3,,[],[],,0,10242
+121,121,En Avant de Guingamp,GUI,,,,,,masculin,3,,[],[],,0,9747
+122,122,FC Metz,MET,,,,,,masculin,3,,[],[],,0,8550
+123,123,Angers SCO,ANG,,,,,,masculin,3,,[],[],,0,8121
+124,124,GFC Ajaccio,GAJ,,,,,,masculin,3,,[],[],,0,6391
+125,125,FC Bayern Munich,BMU,,,,,,masculin,3,,[],[],,0,9823
+126,126,Hamburger SV,HAM,,,,,,masculin,3,,[],[],,0,9790
+127,127,Bayer 04 Leverkusen,LEV,,,,,,masculin,3,,[],[],,0,8178
+128,128,Borussia Dortmund,DOR,,,,,,masculin,3,,[],[],,0,9789
+129,129,FC Schalke 04,S04,,,,,,masculin,3,,[],[],,0,10189
+130,130,Hannover 96,HAN,,,,,,masculin,3,,[],[],,0,9904
+131,131,VfL Wolfsburg,WOL,,,,,,masculin,3,,[],[],,0,8721
+132,132,1. FC Köln,FCK,,,,,,masculin,3,,[],[],,0,8722
+133,133,Eintracht Frankfurt,EFR,,,,,,masculin,3,,[],[],,0,9810
+134,134,Hertha BSC Berlin,HBE,,,,,,masculin,3,,[],[],,0,8177
+135,135,DSC Arminia Bielefeld,BIE,,,,,,masculin,3,,[],[],,0,9912
+136,136,SV Werder Bremen,WBR,,,,,,masculin,3,,[],[],,0,8697
+137,137,FC Energie Cottbus,COT,,,,,,masculin,3,,[],[],,0,8398
+138,138,TSG 1899 Hoffenheim,HOF,,,,,,masculin,3,,[],[],,0,8226
+139,139,Borussia Mönchengladbach,GLA,,,,,,masculin,3,,[],[],,0,9788
+140,140,VfB Stuttgart,STU,,,,,,masculin,3,,[],[],,0,10269
+141,141,Karlsruher SC,KAR,,,,,,masculin,3,,[],[],,0,8295
+142,142,VfL Bochum,BOC,,,,,,masculin,3,,[],[],,0,9911
+143,143,SC Freiburg,FRE,,,,,,masculin,3,,[],[],,0,8358
+144,144,1. FC Nürnberg,NUR,,,,,,masculin,3,,[],[],,0,8165
+145,145,1. FSV Mainz 05,MAI,,,,,,masculin,3,,[],[],,0,9905
+146,146,1. FC Kaiserslautern,KAI,,,,,,masculin,3,,[],[],,0,8350
+147,147,FC St. Pauli,STP,,,,,,masculin,3,,[],[],,0,8152
+148,148,FC Augsburg,AUG,,,,,,masculin,3,,[],[],,0,8406
+149,149,Fortuna Düsseldorf,FDU,,,,,,masculin,3,,[],[],,0,8194
+150,150,SpVgg Greuther Fürth,GRF,,,,,,masculin,3,,[],[],,0,8357
+151,151,Eintracht Braunschweig,BRA,,,,,,masculin,3,,[],[],,0,9776
+152,152,SC Paderborn 07,PAD,,,,,,masculin,3,,[],[],,0,8460
+153,153,FC Ingolstadt 04,ING,,,,,,masculin,3,,[],[],,0,8234
+154,154,SV Darmstadt 98,DAR,,,,,,masculin,3,,[],[],,0,8262
+155,155,Atalanta,ATA,,,,,,masculin,3,,[],[],,0,8524
+156,156,Siena,SIE,,,,,,masculin,3,,[],[],,0,8551
+157,157,Cagliari,CAG,,,,,,masculin,3,,[],[],,0,8529
+158,158,Lazio,LAZ,,,,,,masculin,3,,[],[],,0,8543
+159,159,Catania,CAT,,,,,,masculin,3,,[],[],,0,8530
+160,160,Genoa,GEN,,,,,,masculin,3,,[],[],,0,10233
+161,161,Chievo Verona,CHI,,,,,,masculin,3,,[],[],,0,8533
+162,162,Reggio Calabria,REG,,,,,,masculin,3,,[],[],,0,8690
+163,163,Fiorentina,FIO,,,,,,masculin,3,,[],[],,0,8535
+164,164,Juventus,JUV,,,,,,masculin,3,,[],[],,0,9885
+165,165,Milan,ACM,,,,,,masculin,3,,[],[],,0,8564
+166,166,Bologna,BOL,,,,,,masculin,3,,[],[],,0,9857
+167,167,Roma,ROM,,,,,,masculin,3,,[],[],,0,8686
+168,168,Napoli,NAP,,,,,,masculin,3,,[],[],,0,9875
+169,169,Sampdoria,SAM,,,,,,masculin,3,,[],[],,0,9882
+170,170,Inter,INT,,,,,,masculin,3,,[],[],,0,8636
+171,171,Torino,TOR,,,,,,masculin,3,,[],[],,0,9804
+172,172,Lecce,LEC,,,,,,masculin,3,,[],[],,0,9888
+173,173,Udinese,UDI,,,,,,masculin,3,,[],[],,0,8600
+174,174,Palermo,PAL,,,,,,masculin,3,,[],[],,0,8540
+175,175,Bari,BAR,,,,,,masculin,3,,[],[],,0,9976
+176,176,Livorno,LIV,,,,,,masculin,3,,[],[],,0,8537
+177,177,Parma,PAR,,,,,,masculin,3,,[],[],,0,10167
+178,178,Cesena,CES,,,,,,masculin,3,,[],[],,0,9880
+179,179,Brescia,BRE,,,,,,masculin,3,,[],[],,0,9858
+180,180,Novara,NOV,,,,,,masculin,3,,[],[],,0,6269
+181,181,Pescara,PES,,,,,,masculin,3,,[],[],,0,9878
+182,182,Hellas Verona,VER,,,,,,masculin,3,,[],[],,0,9876
+183,183,Sassuolo,SAS,,,,,,masculin,3,,[],[],,0,7943
+184,184,Empoli,EMP,,,,,,masculin,3,,[],[],,0,8534
+185,185,Frosinone,FRO,,,,,,masculin,3,,[],[],,0,9891
+186,186,Carpi,CAP,,,,,,masculin,3,,[],[],,0,208931
+187,187,Vitesse,VIT,,,,,,masculin,3,,[],[],,0,8277
+188,188,FC Groningen,GRO,,,,,,masculin,3,,[],[],,0,8674
+189,189,Roda JC Kerkrade,ROD,,,,,,masculin,3,,[],[],,0,9803
+190,190,FC Twente,TWE,,,,,,masculin,3,,[],[],,0,8611
+191,191,Willem II,WII,,,,,,masculin,3,,[],[],,0,8525
+192,192,Ajax,AJA,,,,,,masculin,3,,[],[],,0,8593
+193,193,N.E.C.,NEC,,,,,,masculin,3,,[],[],,0,8464
+194,194,De Graafschap,GRA,,,,,,masculin,3,,[],[],,0,8526
+195,195,FC Utrecht,UTR,,,,,,masculin,3,,[],[],,0,9908
+196,196,PSV,PSV,,,,,,masculin,3,,[],[],,0,8640
+197,197,Heracles Almelo,HER,,,,,,masculin,3,,[],[],,0,9791
+198,198,Feyenoord,FEY,,,,,,masculin,3,,[],[],,0,10235
+199,199,Sparta Rotterdam,SPA,,,,,,masculin,3,,[],[],,0,8614
+200,200,ADO Den Haag,HAA,,,,,,masculin,3,,[],[],,0,10217
+201,201,FC Volendam,VOL,,,,,,masculin,3,,[],[],,0,6601
+202,202,SC Heerenveen,HEE,,,,,,masculin,3,,[],[],,0,10228
+203,203,AZ,ALK,,,,,,masculin,3,,[],[],,0,10229
+204,204,NAC Breda,NAC,,,,,,masculin,3,,[],[],,0,9761
+205,205,RKC Waalwijk,RKC,,,,,,masculin,3,,[],[],,0,10219
+206,206,VVV-Venlo,VEN,,,,,,masculin,3,,[],[],,0,9839
+207,207,Excelsior,EXC,,,,,,masculin,3,,[],[],,0,10218
+208,208,PEC Zwolle,ZWO,,,,,,masculin,3,,[],[],,0,6413
+209,209,SC Cambuur,CAM,,,,,,masculin,3,,[],[],,0,7788
+210,210,Go Ahead Eagles,GAE,,,,,,masculin,3,,[],[],,0,6433
+211,211,FC Dordrecht,DOR,,,,,,masculin,3,,[],[],,0,6631
+212,212,Wisła Kraków,WIS,,,,,,masculin,3,,[],[],,0,10265
+213,213,Polonia Bytom,POB,,,,,,masculin,3,,[],[],,0,8031
+214,214,Polonia Bytom,GOR,,,,,,masculin,3,,[],[],,0,8020
+215,215,Ruch Chorzów,CHO,,,,,,masculin,3,,[],[],,0,1601
+216,216,Legia Warszawa,LEG,,,,,,masculin,3,,[],[],,0,8673
+217,217,P. Warszawa,PWA,,,,,,masculin,3,,[],[],,0,2183
+218,218,Śląsk Wrocław,SLA,,,,,,masculin,3,,[],[],,0,8025
+219,219,Lechia Gdańsk,LGD,,,,,,masculin,3,,[],[],,0,8030
+220,220,Widzew Łódź,LOD,,,,,,masculin,3,,[],[],,0,8244
+221,221,Odra Wodzisław,ODR,,,,,,masculin,3,,[],[],,0,8242
+222,222,Lech Poznań,POZ,,,,,,masculin,3,,[],[],,0,2182
+223,223,GKS Bełchatów,BEL,,,,,,masculin,3,,[],[],,0,8569
+224,224,Arka Gdynia,ARK,,,,,,masculin,3,,[],[],,0,8322
+225,225,Jagiellonia Białystok,BIA,,,,,,masculin,3,,[],[],,0,1957
+226,226,Piast Gliwice,PIG,,,,,,masculin,3,,[],[],,0,8028
+227,227,Cracovia,CKR,,,,,,masculin,3,,[],[],,0,2186
+228,228,Korona Kielce,KKI,,,,,,masculin,3,,[],[],,0,8245
+229,229,Zagłębie Lubin,ZAG,,,,,,masculin,3,,[],[],,0,8021
+230,230,Widzew Łódź,WID,,,,,,masculin,3,,[],[],,0,8024
+231,231,Podbeskidzie Bielsko-Biała,POD,,,,,,masculin,3,,[],[],,0,8033
+232,232,Pogoń Szczecin,POG,,,,,,masculin,3,,[],[],,0,8023
+233,233,Zawisza Bydgoszcz,ZAW,,,,,,masculin,3,,[],[],,0,8027
+234,234,Górnik Łęczna,LEC,,,,,,masculin,3,,[],[],,0,8019
+235,235,Termalica Bruk-Bet Nieciecza,TBN,,,,,,masculin,3,,[],[],,0,177361
+236,236,FC Porto,POR,,,,,,masculin,3,,[],[],,0,9773
+237,237,CF Os Belenenses,BEL,,,,,,masculin,3,,[],[],,0,9807
+238,238,Sporting CP,SCP,,,,,,masculin,3,,[],[],,0,9768
+239,239,Trofense,TRO,,,,,,masculin,3,,[],[],,0,7992
+240,240,Vitória Guimarães,GUI,,,,,,masculin,3,,[],[],,0,7844
+241,241,Vitória Setúbal,SET,,,,,,masculin,3,,[],[],,0,10238
+242,242,FC Paços de Ferreira,FER,,,,,,masculin,3,,[],[],,0,6403
+243,243,SC Braga,BRA,,,,,,masculin,3,,[],[],,0,10264
+244,244,Amadora,AMA,,,,,,masculin,3,,[],[],,0,10213
+245,245,Académica de Coimbra,ACA,,,,,,masculin,3,,[],[],,0,10215
+246,246,Rio Ave FC,RA,,,,,,masculin,3,,[],[],,0,7841
+247,247,SL Benfica,BEN,,,,,,masculin,3,,[],[],,0,9772
+248,248,Leixões SC,LEI,,,,,,masculin,3,,[],[],,0,6421
+249,249,CD Nacional,NAC,,,,,,masculin,3,,[],[],,0,10214
+250,250,Naval 1° de Maio,NAV,,,,,,masculin,3,,[],[],,0,9809
+251,251,CS Marítimo,MAR,,,,,,masculin,3,,[],[],,0,10212
+252,252,"União de Leiria, SAD",ULE,,,,,,masculin,3,,[],[],,0,9771
+253,253,S.C. Olhanense,OLH,,,,,,masculin,3,,[],[],,0,2033
+254,254,Portimonense,POR,,,,,,masculin,3,,[],[],,0,9765
+255,255,SC Beira Mar,B-M,,,,,,masculin,3,,[],[],,0,10211
+256,256,Feirense,FEI,,,,,,masculin,3,,[],[],,0,4064
+257,257,Gil Vicente FC,GV,,,,,,masculin,3,,[],[],,0,9764
+258,258,Moreirense FC,MOR,,,,,,masculin,3,,[],[],,0,8348
+259,259,Estoril Praia,EST,,,,,,masculin,3,,[],[],,0,7842
+260,260,FC Arouca,ARO,,,,,,masculin,3,,[],[],,0,158085
+261,261,FC Penafiel,PEN,,,,,,masculin,3,,[],[],,0,6547
+262,262,Boavista FC,BOA,,,,,,masculin,3,,[],[],,0,8613
+263,263,Uniao da Madeira,MAD,,,,,,masculin,3,,[],[],,0,6367
+264,264,Tondela,TON,,,,,,masculin,3,,[],[],,0,188163
+265,265,Falkirk,FAL,,,,,,masculin,3,,[],[],,0,8596
+266,266,Rangers,RAN,,,,,,masculin,3,,[],[],,0,8548
+267,267,Heart of Midlothian,HEA,,,,,,masculin,3,,[],[],,0,9860
+268,268,Motherwell,MOT,,,,,,masculin,3,,[],[],,0,9927
+269,269,Kilmarnock,KIL,,,,,,masculin,3,,[],[],,0,8597
+270,270,Hibernian,HIB,,,,,,masculin,3,,[],[],,0,10251
+271,271,Aberdeen,ABE,,,,,,masculin,3,,[],[],,0,8485
+272,272,Inverness Caledonian Thistle,INV,,,,,,masculin,3,,[],[],,0,8066
+273,273,Celtic,CEL,,,,,,masculin,3,,[],[],,0,9925
+274,274,St. Mirren,MIR,,,,,,masculin,3,,[],[],,0,9800
+275,275,Hamilton Academical FC,HAM,,,,,,masculin,3,,[],[],,0,8429
+276,276,Dundee United,DUU,,,,,,masculin,3,,[],[],,0,9938
+277,277,St. Johnstone FC,JOH,,,,,,masculin,3,,[],[],,0,8467
+278,278,Dunfermline Athletic,DUN,,,,,,masculin,3,,[],[],,0,8457
+279,279,Dundee FC,DUF,,,,,,masculin,3,,[],[],,0,8284
+280,280,Ross County FC,ROS,,,,,,masculin,3,,[],[],,0,8649
+281,281,Partick Thistle F.C.,PAR,,,,,,masculin,3,,[],[],,0,8426
+282,282,Valencia CF,VAL,,,,,,masculin,3,,[],[],,0,10267
+283,283,RCD Mallorca,MAL,,,,,,masculin,3,,[],[],,0,8661
+284,284,CA Osasuna,OSA,,,,,,masculin,3,,[],[],,0,8371
+285,285,Villarreal CF,VIL,,,,,,masculin,3,,[],[],,0,10205
+286,286,RC Deportivo de La Coruña,COR,,,,,,masculin,3,,[],[],,0,9783
+287,287,Real Madrid CF,REA,,,,,,masculin,3,,[],[],,0,8633
+288,288,CD Numancia,NUM,,,,,,masculin,3,,[],[],,0,8388
+289,289,FC Barcelona,BAR,,,,,,masculin,3,,[],[],,0,8634
+290,290,Racing Santander,SAN,,,,,,masculin,3,,[],[],,0,8696
+291,291,Sevilla FC,SEV,,,,,,masculin,3,,[],[],,0,8302
+292,292,Real Sporting de Gijón,SPG,,,,,,masculin,3,,[],[],,0,9869
+293,293,Getafe CF,GET,,,,,,masculin,3,,[],[],,0,8305
+294,294,Real Betis Balompié,BET,,,,,,masculin,3,,[],[],,0,8603
+295,295,RC Recreativo,HUE,,,,,,masculin,3,,[],[],,0,8479
+296,296,RCD Espanyol,ESP,,,,,,masculin,3,,[],[],,0,8558
+297,297,Real Valladolid,VAL,,,,,,masculin,3,,[],[],,0,10281
+298,298,Athletic Club de Bilbao,BIL,,,,,,masculin,3,,[],[],,0,8315
+299,299,UD Almería,ALM,,,,,,masculin,3,,[],[],,0,9865
+300,300,Atlético Madrid,AMA,,,,,,masculin,3,,[],[],,0,9906
+301,301,Málaga CF,MAL,,,,,,masculin,3,,[],[],,0,9864
+302,302,Xerez Club Deportivo,XER,,,,,,masculin,3,,[],[],,0,9868
+303,303,Real Zaragoza,ZAR,,,,,,masculin,3,,[],[],,0,8394
+304,304,CD Tenerife,TEN,,,,,,masculin,3,,[],[],,0,9867
+305,305,Hércules Club de Fútbol,HER,,,,,,masculin,3,,[],[],,0,10278
+306,306,Levante UD,LEV,,,,,,masculin,3,,[],[],,0,8581
+307,307,Real Sociedad,SOC,,,,,,masculin,3,,[],[],,0,8560
+308,308,Granada CF,GRA,,,,,,masculin,3,,[],[],,0,7878
+309,309,Rayo Vallecano,RAY,,,,,,masculin,3,,[],[],,0,8370
+310,310,RC Celta de Vigo,CEL,,,,,,masculin,3,,[],[],,0,9910
+311,311,Elche CF,ELC,,,,,,masculin,3,,[],[],,0,10268
+312,312,SD Eibar,EIB,,,,,,masculin,3,,[],[],,0,8372
+313,313,Córdoba CF,COR,,,,,,masculin,3,,[],[],,0,7869
+314,314,UD Las Palmas,LAS,,,,,,masculin,3,,[],[],,0,8306
+315,315,Grasshopper Club Zürich,GRA,,,,,,masculin,3,,[],[],,0,9956
+316,316,AC Bellinzona,BEL,,,,,,masculin,3,,[],[],,0,6493
+317,317,BSC Young Boys,YB,,,,,,masculin,3,,[],[],,0,10192
+318,318,FC Basel,BAS,,,,,,masculin,3,,[],[],,0,9931
+319,319,FC Aarau,AAR,,,,,,masculin,3,,[],[],,0,9930
+320,320,FC Sion,SIO,,,,,,masculin,3,,[],[],,0,10179
+321,321,FC Luzern,LUZ,,,,,,masculin,3,,[],[],,0,10199
+322,322,FC Vaduz,VAD,,,,,,masculin,3,,[],[],,0,9824
+323,323,Neuchâtel Xamax,XAM,,,,,,masculin,3,,[],[],,0,7955
+324,324,FC Zürich,ZUR,,,,,,masculin,3,,[],[],,0,10243
+325,325,FC St. Gallen,GAL,,,,,,masculin,3,,[],[],,0,10190
+326,326,FC Thun,THU,,,,,,masculin,3,,[],[],,0,10191
+327,327,Servette FC,SER,,,,,,masculin,3,,[],[],,0,9777
+328,328,FC Lausanne-Sports,LAU,,,,,,masculin,3,,[],[],,0,7730
+329,329,Lugano,LUG,,,,,,masculin,3,,[],[],,0,7896
