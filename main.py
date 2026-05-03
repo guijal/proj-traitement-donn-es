@@ -1,8 +1,15 @@
 """
 étapes pour lancer l'application :
 
-1. Transformer l'ensemble des données csv en instances
-2. Lancer l'application via l'interface
+0. importer la structure depuis github
+
+1. Vérifications :
+1.1.  Avoir l'ensemble des fichiers csv bruts dans le dossier data/raw
+1.2. créer un dossier db dans data s'il n'y est pas (normalement il est importé de puis github)
+
+2. Lancer le fichier main
+2.1 UNIQUEMENT POUR LE PREMIER CHARGEMENT : Transformer l'ensemble des données csv brutes en instances
+2.2 Lancer l'application via l'interface
 """
 
 from src.project.data.csv_loader import CSVLoader
@@ -33,40 +40,38 @@ avec la ligne " if __name__ == "__main__": "
         print("liste des joueurs :")
         for joueur in equipe.liste_joueurs:
             print(f"  - {joueur}")
-    
-    #test sports
-    registre_sports = db.sports
-    print("=== Sports chargées ===")
-    for sport in registre_sports.values():
-        print(f"- {sport}")
-
-    #test joueurs basket
-    registre_joueurs = db.competiteurs
-    print("=== Joueurs chargées ===")
-    for joueur in registre_joueurs.values():
-        print(f"- {joueur}")
-
-
-        for equipe in registre_equipes.values():
-            if joueur in equipe.liste_joueurs:
-                print("Equipe du joueur :", equipe.nom_officiel)
-    
 
 """
 
 
 def main():
+
+    print("\n" + "=" * 35)
+    print(" ⚙️   Démarrage du programme...\n")
+    # 0. Pour le premier import à partir des données brutes :
+
+    reponse_import_raw_data = input(" ⚠️   Attention cette action peut écraser certaines données existantes.\n Souhaitez-vous importer les données brutes ? (o/n) : ")
+    print()
+    if reponse_import_raw_data.strip().lower() == "o":
+        from src.project.data.creation_db_base import chargement_raw_data
+        chargement_raw_data()
+        print("Les données ont été réinitialisées depuis les csv bruts.")
+    else:
+        print("Les données n'ont pas été réinitialisées depuis les csv bruts.")
+
     # 1. initialisation de la bdd
     db = Database()
 
     # 2. load des données
-    print("Chargement des données en cours, veuillez patienter...")
+    print()
+    print(" ⚙️   Chargement des données existantes en cours, veuillez patienter...")
     loader = CSVLoader(db=db)
     loader.charger_tout()
-    print("Chargement terminé !\n")
+    print(" ✅   Chargement terminé !\n")
 
     # 3. Activation de l'app
-    print("     ===== Bienvenue dans l'application =====     ")
+    print()
+    print("    ===== Bienvenue dans l'application =====     ")
     reponse_admin = ""
     while reponse_admin not in ["o", "n"]:
         reponse_admin = (
