@@ -12,14 +12,14 @@ from ..models.Competition import Competition
 from .database import Database
 
 
-class BaseLoader(ABC):
-    """Classe de base fournissant les outils nécessaires à tous les loaders spécifiques.
+class BaseConverter(ABC):
+    """Classe de base fournissant les outils nécessaires à tous les converters spécifiques.
 
     Pour linstant les dossiers fournis correspondent à un sport et à l'intérieur les tables ont des relations.
     C'est pourquoi la structure d'import est la suivante :
 
     [Cependant cela n'empêche en rien d'importer d'autres structures de données s'il venait à en y avoir.
-    Il suffit de créer, comme pour les sports, une sous classe de BaseLoader et d'adapter l'import.
+    Il suffit de créer, comme pour les sports, une sous classe de BaseConverter et d'adapter l'import.
     Si cette structure venait à être commune, on ajoute simplement de nouvelles méthodes dans cette classe pour généraliser le nouveau type d'import.]
 
     Structure d'import générale :
@@ -34,16 +34,16 @@ class BaseLoader(ABC):
     """
 
     def __init__(self, data_directory: str, db: Database):
-        """Initialise le loader.
+        """Initialise le converter.
 
-        Chaque loader accède à son dossier de données brut et remplit la bdd
+        Chaque converter accède à son dossier de données brut et remplit la bdd
 
         Attributes
         ----------
         data_directory : str
             Chemin du dossier de données brut
         db : Database
-            Instance de la base de données partagée par tous les loaders
+            Instance de la base de données partagée par tous les converters
 
         """
         self.data_directory = data_directory

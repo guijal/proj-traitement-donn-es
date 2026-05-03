@@ -5,7 +5,7 @@
 2. Lancer l'application via l'interface
 """
 
-from src.project.data.csv_loader_propre import CSVLoader
+from src.project.data.csv_loader import CSVLoader
 from src.project.data.database import Database
 import src.project.utils.utils_interface as utils_interface
 

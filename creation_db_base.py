@@ -1,4 +1,4 @@
-from src.project.data.csv_loader import CSVLoader
+from src.project.data.csv_converter import CSVConverter
 from src.project.data.csv_writer import sauvegarder_donnees_csv
 from src.project.data.database import Database
 
@@ -7,8 +7,8 @@ db = Database()
 
 # 2. load des données
 print("Chargement des données en cours, veuillez patienter...")
-loader = CSVLoader(data_directory="data/raw", db=db)
-loader.charger_tout()
+converter = CSVConverter(data_directory="data/raw", db=db)
+converter.charger_tout()
 print("Chargement terminé !\n")
 
 print("Sauvegarde des données en cours, veuillez patienter...")

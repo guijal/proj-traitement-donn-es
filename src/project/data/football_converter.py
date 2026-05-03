@@ -1,16 +1,16 @@
-# /src/project/data/football_loader.py
+# /src/project/data/football_converter.py
 from ..models.Equipe import Equipe
 from ..models.Sport import Sport
 from ..models.Competiteur import Competiteur
 from ..models.Match import Match
 from ..models.Competition import Competition
-from .base_loader import BaseLoader
+from .base_converter import BaseConverter
 
 
-class FootballLoader(BaseLoader):
-    """Loader spécifique pour les données de football.
+class FootballConverter(BaseConverter):
+    """Converter spécifique pour les données de football.
 
-    Suit la structure d'import générale (c.f. base_loader.py)
+    Suit la structure d'import générale (c.f. base_converter.py)
     """
 
     def __init__(self, data_directory: str, db):

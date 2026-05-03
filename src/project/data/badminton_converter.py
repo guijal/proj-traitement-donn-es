@@ -3,13 +3,13 @@ from ..models.Sport import Sport
 from ..models.Competiteur import Competiteur
 from ..models.Match import Match
 from ..models.Competition import Competition
-from .base_loader import BaseLoader
+from .base_converter import BaseConverter
 
 
-class BadmintonLoader(BaseLoader):
-    """Loader spécifique pour les données du bad.
+class BadmintonConverter(BaseConverter):
+    """Converter spécifique pour les données du bad.
 
-    Suit la structure d'import générale (c.f. base_loader.py)
+    Suit la structure d'import générale (c.f. base_converter.py)
     """
 
     def __init__(self, data_directory: str, db):
