@@ -25,6 +25,7 @@ class FootballConverter(BaseConverter):
         self.charger_equipes("football_european_leagues/team.csv")
         self.charger_joueurs("football_european_leagues/player.csv")
         self.charger_matchs("football_european_leagues/match.csv")
+        self.charger_competitions("football_european_leagues/league.csv")
 
     def charger_equipes(self, nom_fichier: str) -> None:
         donnees = self._lire_csv(nom_fichier)
@@ -147,3 +148,27 @@ class FootballConverter(BaseConverter):
                 statistiques_diverses=stats_diverses if stats_diverses else None,
             )
             self.db.matchs[nouvel_id] = match
+
+    def charger_competitions(self, nom_fichier: str) -> None:
+        # Chargement des pays pour effectuer la jointure par country_id
+        pays_donnees = self._lire_csv("football_european_leagues/country.csv")
+        map_pays = {p["id"]: p["name"] for p in pays_donnees}
+
+        donnees = self._lire_csv(nom_fichier)
+        for ligne in donnees:
+            id_csv = int(
+                ligne["league_api_id"]
+            )  # Utilisation de league_api_id comme id_csv
+            nouvel_id = self.db.generer_id_competition()
+            self.map_competitions[id_csv] = nouvel_id
+
+            # Jointure : on récupère le nom du pays associé via country_id
+            nom_pays = map_pays.get(ligne["country_id"], "Inconnu")
+            nom_competition = f"{nom_pays} {ligne['name']}"
+
+            competition = Competition(
+                id_competition=nouvel_id,
+                nom=nom_competition,
+                id_csv=id_csv,
+            )
+            self.db.competitions[nouvel_id] = competition
