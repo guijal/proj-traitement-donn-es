@@ -97,6 +97,7 @@ def sauvegarder_donnees_csv(data_directory: str, db):
     """
     Sauvegarde les données de la base de données dans des fichiers CSV.
     """
+
     enregister_list(data_directory + "/sports", db.sports)
     enregister_list_equipe(data_directory + "/equipes", db.equipes)
     enregister_list_competiteurs(data_directory + "/competiteurs", db.competiteurs)
@@ -106,3 +107,16 @@ def sauvegarder_donnees_csv(data_directory: str, db):
     enregister_list(data_directory + "/coachs", db.coachs)
     enregister_list(data_directory + "/medailles", db.medailles)
     enregister_list(data_directory + "/tournois", db.tournois)
+
+    """
+    Arbitre : pas fait
+    Coach : pas fait
+    Competiteur : fait
+    Competition : pas fait
+    Equipe : fait
+    Match : fait
+    Medaille : fait
+    President : pas fait
+    Sport : fait
+    Tournoi : pas fait
+    """
