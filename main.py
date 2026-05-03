@@ -7,9 +7,9 @@
 1.1.  Avoir l'ensemble des fichiers csv bruts dans le dossier data/raw
 1.2. créer un dossier db dans data s'il n'y est pas (normalement il est importé de puis github)
 
-2. Lancer le fichier main
-2.1 UNIQUEMENT POUR LE PREMIER CHARGEMENT : Transformer l'ensemble des données csv brutes en instances
-2.2 Lancer l'application via l'interface
+2. Lancer le fichier main et suivre ce qui est dit 
+2.1 UNIQUEMENT POUR LE PREMIER CHARGEMENT : Transformer l'ensemble des données csv brutes en instances en répondant "o" à la première question
+
 """
 
 from src.project.data.csv_loader import CSVLoader
